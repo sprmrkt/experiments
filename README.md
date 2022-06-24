@@ -1,16 +1,6 @@
-# Great Start
+# The third dimension
 
-A starter template for Gatbsy web builds by Will McLean
-
-## Start a site
-
-1. Create a private repo using this as a template when prompted in the willswebsites organisation
-2. Clone the repo to your local machine
-1. Install dependencies by running `npm install` inside the project directory
-4. Update project title and description in readme, package.json and gatsby-config.js
-5. Add an initial commit and push to github
-7. Start deving with `gatsby develop`
-6. Link Netlify site to github repo for deployment (or get Will to)
+A house and a home for our beautiful three-dee children
 
 ## Join the site
 

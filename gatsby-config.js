@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Great Start`,
-    description: `Will's great start for Gatsby builds`,
+    description: `A house and a home for our beautiful three-dee children`,
     author: `Will McLean`,
     siteUrl: `https://www.example.com`,
   },
@@ -35,8 +35,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `great-start`,
-        short_name: `great-start`,
+        name: `the-third-dimension`,
+        short_name: `the-third-dimension`,
         start_url: `/`,
         background_color: `#000000`,
         theme_color: `#000000`,
