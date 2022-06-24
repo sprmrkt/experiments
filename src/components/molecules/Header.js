@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const Holder = styled.header`
   position: fixed;
+  z-index: 10;
   top: 0.5rem;
   left: 1rem;
   h1 {

@@ -3,9 +3,30 @@ import Seo from "../components/molecules/Seo";
 import Container from "../components/atoms/Container";
 import styled from "styled-components";
 import {Link} from "gatsby";
+import Image from "../components/atoms/Image";
 
 const Holder = styled.div`
   margin-top: 10rem;
+
+  li {
+    position: relative;
+    &:hover {
+      .image-holder {
+        opacity: 1;
+      }
+    }
+    a {
+      display: inline-block;
+      width: 100%;
+    }
+    .image-holder {
+      width: 50vw;
+      position: absolute;
+      top: 0;
+      right: 0;
+      opacity: 0;
+    }
+  }
 `;
 
 const IndexPage = () => (
@@ -13,7 +34,12 @@ const IndexPage = () => (
     <Holder>
       <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <ul>
-        <li><Link to={'/cw-globe'}>CW Globe</Link></li>
+        <li>
+          <Link to={'/cw-globe'}>CW Globe</Link>
+          <div className="image-holder">
+            <Image imgName={'cw-globe.jpg'}/>
+          </div>
+        </li>
       </ul>
     </Holder>
   </Container>
