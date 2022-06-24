@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Great Start`,
+    title: `The Third Dimension`,
     description: `A house and a home for our beautiful three-dee children`,
     author: `Will McLean`,
     siteUrl: `https://www.example.com`,
@@ -41,7 +41,7 @@ module.exports = {
         background_color: `#000000`,
         theme_color: `#000000`,
         display: `minimal-ui`,
-        icon: `static/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `static/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
