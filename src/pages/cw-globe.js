@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from "react";
+import React from "react";
 import Seo from "../components/molecules/Seo";
 import styled from "styled-components";
 import CanvasHolder from "../components/atoms/CanvasHolder";

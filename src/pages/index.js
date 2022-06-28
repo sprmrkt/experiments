@@ -43,13 +43,13 @@ const IndexPage = () => (
         <li>
           <Link to={'/blocks'}>Blocks</Link>
           <div className="image-holder">
-            <Image imgName={'cw-globe.jpg'}/>
+            <Image imgName={'blocks.jpg'}/>
           </div>
         </li>
         <li>
           <Link to={'/galaxy-generator'}>Galaxy Generator</Link>
           <div className="image-holder">
-            <Image imgName={'cw-globe.jpg'}/>
+            <Image imgName={'galaxy.jpg'}/>
           </div>
         </li>
       </ul>
