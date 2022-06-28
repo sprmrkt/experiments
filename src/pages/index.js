@@ -40,6 +40,18 @@ const IndexPage = () => (
             <Image imgName={'cw-globe.jpg'}/>
           </div>
         </li>
+        <li>
+          <Link to={'/blocks'}>Blocks</Link>
+          <div className="image-holder">
+            <Image imgName={'cw-globe.jpg'}/>
+          </div>
+        </li>
+        <li>
+          <Link to={'/galaxy-generator'}>Galaxy Generator</Link>
+          <div className="image-holder">
+            <Image imgName={'cw-globe.jpg'}/>
+          </div>
+        </li>
       </ul>
     </Holder>
   </Container>
