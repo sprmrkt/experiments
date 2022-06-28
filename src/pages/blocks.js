@@ -21,7 +21,7 @@ function Blocks() {
         <Canvas
           shadows
           camera={{
-            position: [0, 2, size.width > 576 ? 10 : 30],
+            position: [0, 2, size.width > 576 ? 10 : 12],
             fov: 30,
           }}>
           <ScrollControls pages={5}>
