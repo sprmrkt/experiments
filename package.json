@@ -8,7 +8,9 @@
     "@react-spring/three": "^9.4.5",
     "@react-three/drei": "^9.14.2",
     "@react-three/fiber": "^8.0.27",
+    "@react-three/xr": "^3.5.0",
     "@svgr/webpack": "^6.2.1",
+    "@zappar/zappar-react-three-fiber": "^1.2.5",
     "babel-plugin-styled-components": "^2.0.7",
     "classnames": "^2.3.1",
     "cross-env": "^7.0.3",
@@ -50,7 +52,7 @@
   "license": "MIT",
   "scripts": {
     "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
-    "develop": "gatsby develop",
+    "develop": "gatsby develop -H 0.0.0.0",
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
