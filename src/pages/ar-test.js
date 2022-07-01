@@ -16,7 +16,7 @@ const Holder = styled.div`
 
 function ArTest() {
 
-  const targetFile = 'artest/futurity.zpt';
+  const targetFile = 'artest/entrance-pool.zpt';
 
   return (
     <Holder>
