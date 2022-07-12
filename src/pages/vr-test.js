@@ -48,7 +48,7 @@ function VrTestPage() {
           </Interactive>
           <RotatingObject/>
           <SelectObject/>
-          <Room scale={0.05} position={[20, -15, -20]} />
+          <Room scale={0.04} position={[20, -10, -20]} />
         </VRCanvas>
       </CanvasHolder>
     </Holder>
