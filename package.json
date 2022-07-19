@@ -6,6 +6,7 @@
   "author": "Will McLean <willmcl@gmail.com>",
   "dependencies": {
     "@react-spring/three": "^9.4.5",
+    "@react-three/cannon": "^6.3.0",
     "@react-three/drei": "^9.14.2",
     "@react-three/fiber": "^8.0.27",
     "@react-three/xr": "^3.5.0",

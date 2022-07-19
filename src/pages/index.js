@@ -53,7 +53,7 @@ const IndexPage = () => (
           </div>
         </li>
         <li>
-          <Link to={'/raycaster'}>Raycaster</Link>
+          <Link to={'/physics'}>Physics</Link>
           <div className="image-holder">
             <Image imgName={'galaxy.jpg'}/>
           </div>
