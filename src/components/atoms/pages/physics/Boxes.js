@@ -15,7 +15,8 @@ function Boxes(props) {
   const [boxes, setBoxes] = useState(() => Array.from({ length: 3 }).map(() => generateRandomBox(props)) )
 
   const addRandomBox = () => setBoxes((currBoxes) => [...currBoxes, generateRandomBox(props)])
-  useControls({ addBox: button(addRandomBox) })
+  const removeBoxes = ()  => setBoxes([])
+  useControls({ addBox: button(addRandomBox), removeAllBoxes: button(removeBoxes) })
 
   return boxes.map((boxInfo , i) =>
     <RandomBox key={i} {...boxInfo}/>

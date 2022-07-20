@@ -8,12 +8,15 @@ import {useWindowSize} from "react-use";
 import {OrbitControls} from "@react-three/drei";
 import {Physics} from '@react-three/cannon'
 import PhysicsInner from "../components/atoms/pages/physics/PhysicsInner";
+import {useControls} from "leva";
 
 const Holder = styled.div`
 `;
 
 function PhysicsPage() {
   const size = useWindowSize()
+
+  const { gravity } = useControls({ gravity: { value: [0, -9.81, 0], step: 0.2 } })
 
   return (
     <Holder>
@@ -30,8 +33,9 @@ function PhysicsPage() {
           <ambientLight intensity={0.5} />
           <DefaultDirectionalLight />
           <Physics
-            allowSleep={true}
+            // allowSleep={true}
             broadphase={'SAP'}
+            gravity={gravity}
             defaultContactMaterial={{ friction: 0.1, restitution: 0.8 }}>
             <PhysicsInner/>
           </Physics>

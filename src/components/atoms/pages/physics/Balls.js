@@ -16,7 +16,8 @@ function Balls(props) {
   const [balls, setBalls] = useState(() => Array.from({ length: 3 }).map(() => generateRandomBall(props)) )
 
   const addRandomBall = () => setBalls((currBalls) => [...currBalls, generateRandomBall(props)])
-  useControls({ addBall: button(addRandomBall) })
+  const removeBalls = ()  => setBalls([])
+  useControls({ addBall: button(addRandomBall), removeAllBalls: button(removeBalls) })
 
   return balls.map((ballInfo , i) =>
     <Ball key={i} {...ballInfo}/>
