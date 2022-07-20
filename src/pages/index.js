@@ -23,8 +23,11 @@ const Holder = styled.div`
       width: 50vw;
       position: absolute;
       top: 0;
-      right: 0;
+      right: 20vw;
       opacity: 0;
+      @media( ${props => props.theme.breakpoints.md} ) {
+        width: 30vw;
+      }
     }
   }
 `;
@@ -35,9 +38,9 @@ const IndexPage = () => (
       <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <ul>
         <li>
-          <Link to={'/cw-globe'}>CW Globe</Link>
+          <Link to={'/physics'}>Physics</Link>
           <div className="image-holder">
-            <Image imgName={'cw-globe.jpg'}/>
+            <Image imgName={'physics.png'}/>
           </div>
         </li>
         <li>
@@ -47,13 +50,13 @@ const IndexPage = () => (
           </div>
         </li>
         <li>
-          <Link to={'/galaxy-generator'}>Galaxy Generator</Link>
+          <Link to={'/cw-globe'}>CW Globe</Link>
           <div className="image-holder">
-            <Image imgName={'galaxy.jpg'}/>
+            <Image imgName={'cw-globe.jpg'}/>
           </div>
         </li>
         <li>
-          <Link to={'/physics'}>Physics</Link>
+          <Link to={'/galaxy-generator'}>Galaxy Generator</Link>
           <div className="image-holder">
             <Image imgName={'galaxy.jpg'}/>
           </div>
