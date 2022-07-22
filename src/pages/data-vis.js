@@ -39,6 +39,9 @@ function DataVis() {
               defaultContactMaterial={{friction: 0.1, restitution: 0.8}}>
               <PhysicsParticles />
             </Physics>
+            <group position={[0,-20,0]}>
+            <ParticleGroups/>
+            </group>
           </ScrollControls>
 
         </Canvas>

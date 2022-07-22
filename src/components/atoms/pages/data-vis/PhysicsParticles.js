@@ -17,7 +17,15 @@ function PhysicParticles() {
   const data = useScroll()
 
   useFrame((state) => {
-    state.camera.position.z = THREE.MathUtils.lerp(15, 2, data.offset)
+    const a = data.range(0, 1/4)
+    const b = data.range(1/4, 1/2)
+    const c = data.range(1/2, 1)
+    if(a < 1) {
+      state.camera.position.z = THREE.MathUtils.lerp(15, 2, a)
+    } else {
+      state.camera.position.z = THREE.MathUtils.lerp(2, 15, b)
+    }
+    state.camera.position.y = THREE.MathUtils.lerp(0, -40, c)
   })
 
   return (
