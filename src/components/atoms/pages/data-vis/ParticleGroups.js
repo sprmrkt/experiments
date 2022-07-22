@@ -51,29 +51,29 @@ function ParticleGroups() {
           })}
         </Points>
         <lineSegments geometry={lineGeometry}>
-          <lineBasicMaterial color={palette[3]} attach="material" />
+          <lineBasicMaterial color={palette[3]} attach="material" opacity={0.5} transparent/>
         </lineSegments>
       </group>
-      {/*<group>*/}
-      {/*  <Points limit={controls.count.max}>*/}
-      {/*    <ParticleMaterial/>*/}
-      {/*    {Array.from({length: count}).map((_, i) => {*/}
-      {/*      let randomDirection = new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize()*/}
+      <group>
+        <Points limit={controls.count.max}>
+          <ParticleMaterial/>
+          {Array.from({length: count}).map((_, i) => {
+            let randomDirection = new THREE.Vector3(Math.random() - 0.5, Math.random() - 0.5, Math.random() - 0.5).normalize()
 
-      {/*      // Position with bias to the edge of the circle*/}
-      {/*      // https://stackoverflow.com/questions/29325069/how-to-generate-random-numbers-biased-towards-one-value-in-a-range*/}
-      {/*      let radius3 = Math.random() * radius;*/}
-      {/*      let mix = Math.random() * influence*/}
-      {/*      let position = randomDirection.multiplyScalar(radius3 * (1-mix) + radius * mix)*/}
+            // Position with bias to the edge of the circle
+            // https://stackoverflow.com/questions/29325069/how-to-generate-random-numbers-biased-towards-one-value-in-a-range
+            let radius3 = Math.random() * radius;
+            let mix = Math.random() * influence
+            let position = randomDirection.multiplyScalar(radius3 * (1-mix) + radius * mix)
 
-      {/*      return <Point*/}
-      {/*        key={i}*/}
-      {/*        position={position}*/}
-      {/*        color={palette[3]}*/}
-      {/*      />*/}
-      {/*    })}*/}
-      {/*  </Points>*/}
-      {/*</group>*/}
+            return <Point
+              key={i}
+              position={position}
+              color={palette[2]}
+            />
+          })}
+        </Points>
+      </group>
     </Float>
   )
 }
