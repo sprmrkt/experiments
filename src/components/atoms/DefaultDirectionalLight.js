@@ -2,8 +2,8 @@ import React, {useRef} from 'react';
 import {useHelper} from "@react-three/drei";
 import {CameraHelper, DirectionalLightHelper} from "three";
 
-function DefaultDirectionalLight() {
-  const debug = true;
+function DefaultDirectionalLight(props) {
+  const debug = props.debug;
   const directionalLight = useRef()
   const shadowCamera = useRef()
   useHelper(debug && directionalLight, DirectionalLightHelper)

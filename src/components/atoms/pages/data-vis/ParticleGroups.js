@@ -50,9 +50,6 @@ function ParticleGroups() {
             />
           })}
         </Points>
-        <lineSegments geometry={lineGeometry}>
-          <lineBasicMaterial color={palette[3]} attach="material" opacity={0.5} transparent/>
-        </lineSegments>
       </group>
       <group>
         <Points limit={controls.count.max}>

@@ -61,6 +61,12 @@ const IndexPage = () => (
             <Image imgName={'galaxy.jpg'}/>
           </div>
         </li>
+        <li>
+          <Link to={'/vr-test'}>VR test</Link>
+        </li>
+        <li>
+          <Link to={'/data-vis'}>Data vis</Link>
+        </li>
       </ul>
     </Holder>
   </Container>

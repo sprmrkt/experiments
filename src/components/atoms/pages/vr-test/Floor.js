@@ -4,9 +4,9 @@ import {usePlane} from "@react-three/cannon";
 import PropTypes from "prop-types";
 
 function Floor({color}) {
-  const [ref] = usePlane(() => ({mass: 0, rotation: [-Math.PI / 2, 0, 0], position: [0, -1, -2.5]}))
+  const [ref] = usePlane(() => ({mass: 0, rotation: [-Math.PI / 2, 0, 0], position: [0,0,0]}))
   return (
-    <Plane ref={ref} receiveShadow args={[5, 5]}>
+    <Plane ref={ref} receiveShadow args={[10, 10]}>
       <meshStandardMaterial color={color} metalness={0.3} roughness={0.4} />
     </Plane>
   )
