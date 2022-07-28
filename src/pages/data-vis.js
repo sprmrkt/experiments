@@ -8,15 +8,16 @@ import {OrbitControls, ScrollControls} from "@react-three/drei";
 import NodeGroup from "../components/atoms/pages/data-vis/NodeGroup";
 import * as THREE from "three";
 import CameraRig from "../components/atoms/pages/data-vis/CameraRig";
+import WorldGroup from "../components/atoms/pages/data-vis/WorldGroup";
 
 const Holder = styled.div`
 `;
 
 const sphere = new THREE.SphereGeometry(0.1, 36, 36)
-const pink = new THREE.MeshPhongMaterial({ color: "#ff4894", shininess: 100, transparent: true, opacity: 0.85 })
-const blue = new THREE.MeshPhongMaterial({ color: "#77c6e1", shininess: 100, transparent: true, opacity: 0.85 })
-const yellow = new THREE.MeshPhongMaterial({ color: "#e7db55", shininess: 100, transparent: true, opacity: 0.85 })
-const white = new THREE.MeshBasicMaterial({ color: "#ffffff", transparent: true })
+const pink = new THREE.MeshPhongMaterial({color: "#ff4894", shininess: 100, transparent: true, opacity: 0.85})
+const blue = new THREE.MeshPhongMaterial({color: "#77c6e1", shininess: 100, transparent: true, opacity: 0.85})
+const yellow = new THREE.MeshPhongMaterial({color: "#e7db55", shininess: 100, transparent: true, opacity: 0.85})
+const white = new THREE.MeshPhongMaterial({color: "#ffffff"})
 
 function DataVis() {
 
@@ -39,10 +40,12 @@ function DataVis() {
               // shadow-radius={10} // Blurred shadows don't work with shadowMapType of softshadowmap (the defalt on three-fibre Canvas).
             />
             <ScrollControls pages={5}>
-              <CameraRig/>
-              <NodeGroup count={225} geometry={sphere} material={pink} whiteMaterial={white}/>
-              <NodeGroup count={225} geometry={sphere} material={blue} whiteMaterial={white}/>
-              <NodeGroup count={50} geometry={sphere} material={yellow} hero whiteMaterial={white}/>
+              <CameraRig />
+              <WorldGroup>
+                <NodeGroup count={250} geometry={sphere} material={pink} whiteMaterial={white} to={"right"} />
+                <NodeGroup count={250} geometry={sphere} material={blue} whiteMaterial={white} to={"left"} />
+                <NodeGroup count={250} geometry={sphere} material={yellow} hero whiteMaterial={white} />
+              </WorldGroup>
             </ScrollControls>
           </Suspense>
         </Canvas>

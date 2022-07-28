@@ -17,6 +17,7 @@ function Node(props) {
     const r3 = data.range(0.4, 0.1)
     const r4 = data.range(0.55, 0.05)
     const r5 = data.range(0.7, 0.1)
+    const r6 = data.range(0.8, 0.1)
 
     // Floatyness (The movement stops after r2 hence multiplying the value by 1-r2 at the end of each calculation)
     const a = clock.getElapsedTime() + props.i
@@ -25,18 +26,30 @@ function Node(props) {
 
 
     // Show Hero things
-    if (props.hero) {
-      ref.current.scale.x = THREE.MathUtils.lerp(1, 2.5, r1)
-      ref.current.scale.y = THREE.MathUtils.lerp(1, 2.5, r1)
-      ref.current.scale.z = THREE.MathUtils.lerp(1, 2.5, r1)
-    } else {
-      ref.current.scale.x = THREE.MathUtils.lerp(1, 0.3, r1)
-      ref.current.scale.y = THREE.MathUtils.lerp(1, 0.3, r1)
-      ref.current.scale.z = THREE.MathUtils.lerp(1, 0.3, r1)
+    if (r1 < 1) {
+      if (props.hero) {
+        ref.current.scale.x = THREE.MathUtils.lerp(1, 2.5, r1)
+        ref.current.scale.y = THREE.MathUtils.lerp(1, 2.5, r1)
+        ref.current.scale.z = THREE.MathUtils.lerp(1, 2.5, r1)
+      } else {
+        ref.current.scale.x = THREE.MathUtils.lerp(1, 0.3, r1)
+        ref.current.scale.y = THREE.MathUtils.lerp(1, 0.3, r1)
+        ref.current.scale.z = THREE.MathUtils.lerp(1, 0.3, r1)
+      }
+    } else if (r5 > 0) {
+      if (props.hero) {
+        ref.current.scale.x = THREE.MathUtils.lerp(2.5, 2, r5)
+        ref.current.scale.y = THREE.MathUtils.lerp(2.5, 2, r5)
+        ref.current.scale.z = THREE.MathUtils.lerp(2.5, 2, r5)
+      } else {
+        ref.current.scale.x = THREE.MathUtils.lerp(0.3, 2, r5)
+        ref.current.scale.y = THREE.MathUtils.lerp(0.3, 2, r5)
+        ref.current.scale.z = THREE.MathUtils.lerp(0.3, 2, r5)
+      }
     }
 
     // Fade out for hero particle
-    if( r4 < 1 ) {
+    if (r4 < 1) {
       outerRef.current.material.opacity = THREE.MathUtils.lerp(0.85, 0.3, r4)
       innerRef.current.material.opacity = THREE.MathUtils.lerp(1, 0.3, r4)
     } else {

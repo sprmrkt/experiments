@@ -3,15 +3,26 @@ import * as THREE from "three";
 import Node from "./Node";
 import {useFrame} from "@react-three/fiber";
 import Lines from "./Lines";
+import {useScroll} from "@react-three/drei";
 
 const radius = 8
 const influence = 1 // 0 to 1
 
 function NodeGroup(props) {
   const groupRef = useRef()
+  const data = useScroll()
   useFrame(({clock}) => {
+    // constant rotation
     const a = clock.getElapsedTime() * 0.1
     groupRef.current.rotation.y = a
+
+    // split groups
+    const r6 = data.range(0.8, 0.1)
+    if(props.to === 'left') {
+      groupRef.current.position.z = THREE.MathUtils.lerp(0, -20, r6)
+    } else if ( props.to === 'right' ) {
+      groupRef.current.position.z = THREE.MathUtils.lerp(0, 20, r6)
+    }
   })
 
   let positions = []

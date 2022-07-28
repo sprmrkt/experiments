@@ -12,7 +12,7 @@ function CameraRig() {
     if(r3 < 1) {
       state.camera.position.z = THREE.MathUtils.lerp(15, 8, r3)
     } else {
-      state.camera.position.z = THREE.MathUtils.lerp(8, 15, r5)
+      state.camera.position.z = THREE.MathUtils.lerp(8, 20, r5)
     }
   })
 
