@@ -50,11 +50,11 @@ function Node(props) {
 
     // Fade out for hero particle
     if (r4 < 1) {
-      outerRef.current.material.opacity = THREE.MathUtils.lerp(0.85, 0.3, r4)
-      innerRef.current.material.opacity = THREE.MathUtils.lerp(1, 0.3, r4)
+      outerRef.current.material.opacity = THREE.MathUtils.lerp(0.85, 0.1, r4)
+      innerRef.current.material.opacity = THREE.MathUtils.lerp(1, 0.1, r4)
     } else {
-      outerRef.current.material.opacity = THREE.MathUtils.lerp(0.3, 0.85, r5)
-      innerRef.current.material.opacity = THREE.MathUtils.lerp(0.3, 1, r5)
+      outerRef.current.material.opacity = THREE.MathUtils.lerp(0.1, 0.85, r5)
+      innerRef.current.material.opacity = THREE.MathUtils.lerp(0.1, 1, r5)
     }
 
   })

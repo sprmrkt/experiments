@@ -9,8 +9,10 @@ import NodeGroup from "../components/atoms/pages/data-vis/NodeGroup";
 import * as THREE from "three";
 import CameraRig from "../components/atoms/pages/data-vis/CameraRig";
 import WorldGroup from "../components/atoms/pages/data-vis/WorldGroup";
+import MyHero from "../components/atoms/pages/data-vis/MyHero";
 
 const Holder = styled.div`
+  background-color: #efeef6;
 `;
 
 const sphere = new THREE.SphereGeometry(0.1, 36, 36)
@@ -45,6 +47,7 @@ function DataVis() {
                 <NodeGroup count={250} geometry={sphere} material={pink} whiteMaterial={white} to={"right"} />
                 <NodeGroup count={250} geometry={sphere} material={blue} whiteMaterial={white} to={"left"} />
                 <NodeGroup count={250} geometry={sphere} material={yellow} hero whiteMaterial={white} />
+                <MyHero geometry={sphere}/>
               </WorldGroup>
             </ScrollControls>
           </Suspense>

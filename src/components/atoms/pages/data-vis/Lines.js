@@ -20,7 +20,7 @@ function Lines(props) {
   })
   return (
     <lineSegments ref={ref} geometry={lineGeometry}>
-      <lineBasicMaterial color={'#ffffff'} attach="material" transparent />
+      <lineBasicMaterial color={'#838282'} attach="material" opacity={0} transparent />
     </lineSegments>
   )
 }
