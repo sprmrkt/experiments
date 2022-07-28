@@ -16,13 +16,15 @@ function MyHero(props) {
 
   useFrame(({clock}) => {
     // Scroll ranges
+    const r1 = data.range(0.2, 0.1)
     const r4 = data.range(0.55, 0.05)
     const r5 = data.range(0.7, 0.1)
 
-    // Fade in/out
-    if (r4 < 1) {
-      outerRef.current.material.opacity = THREE.MathUtils.lerp(0, 0.85, r4)
-      innerRef.current.material.opacity = THREE.MathUtils.lerp(0, 1, r4)
+    if (r1 < 1) {
+      ref.current.scale.x = THREE.MathUtils.lerp(1, 2.5, r1)
+      ref.current.scale.y = THREE.MathUtils.lerp(1, 2.5, r1)
+      ref.current.scale.z = THREE.MathUtils.lerp(1, 2.5, r1)
+    } else if (r4 < 1) {
       ref.current.scale.x = THREE.MathUtils.lerp(2.5, 10, r4)
       ref.current.scale.y = THREE.MathUtils.lerp(2.5, 10, r4)
       ref.current.scale.z = THREE.MathUtils.lerp(2.5, 10, r4)
@@ -37,7 +39,7 @@ function MyHero(props) {
   })
   return (
     <group>
-      <group ref={ref} >
+      <group ref={ref}>
         <mesh ref={outerRef} geometry={props.geometry} material={yellow} />
         <mesh ref={innerRef} geometry={props.geometry} material={white} scale={0.1} />
       </group>
