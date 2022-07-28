@@ -33,10 +33,10 @@ function DataVis() {
           }}>
           <Suspense fallback={<span style={{color: 'black'}}>loading...</span>}>
             {/*<OrbitControls makeDefault />  */}
-            <ambientLight intensity={0.5} />
+            <ambientLight intensity={0.3} />
             <directionalLight
               intensity={0.8}
-              color={'#de2020'}
+              color={'#209cde'}
               position={[5, 10, 5]}
               shadow-mapSize={[1024 * 2, 1024 * 2]}
               // shadow-radius={10} // Blurred shadows don't work with shadowMapType of softshadowmap (the defalt on three-fibre Canvas).
@@ -44,9 +44,9 @@ function DataVis() {
             <ScrollControls pages={5}>
               <CameraRig />
               <WorldGroup>
+                <NodeGroup count={250} geometry={sphere} material={yellow} whiteMaterial={white} to={"left"} />
                 <NodeGroup count={250} geometry={sphere} material={pink} whiteMaterial={white} to={"right"} />
-                <NodeGroup count={250} geometry={sphere} material={blue} whiteMaterial={white} to={"left"} />
-                <NodeGroup count={250} geometry={sphere} material={yellow} hero whiteMaterial={white} />
+                <NodeGroup count={250} geometry={sphere} material={blue} hero whiteMaterial={white} />
                 <MyHero geometry={sphere}/>
               </WorldGroup>
             </ScrollControls>

@@ -31,7 +31,10 @@ function NodeGroup(props) {
 
     // Position with bias to the edge of the circle
     // https://stackoverflow.com/questions/29325069/how-to-generate-random-numbers-biased-towards-one-value-in-a-range
-    let radius3 = Math.random() * radius;
+
+    // It would be nice to clear the middle section so the zoom in to the main particle is cleaner
+
+    let radius3 = Math.random() * radius
     let mix = Math.random() * influence
     positions.push(randomDirection.multiplyScalar(radius3 * (1 - mix) + radius * mix))
   }

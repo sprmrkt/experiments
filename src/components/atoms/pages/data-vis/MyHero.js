@@ -4,7 +4,7 @@ import {useFrame} from "@react-three/fiber";
 import * as THREE from "three";
 
 
-const yellow = new THREE.MeshPhongMaterial({color: "#e7db55", shininess: 100, transparent: true, opacity: 0.85})
+const yellow = new THREE.MeshPhongMaterial({color: "#77c6e1", shininess: 100, transparent: true, opacity: 0.85})
 const white = new THREE.MeshPhongMaterial({color: "#ffffff"})
 
 function MyHero(props) {
@@ -24,16 +24,12 @@ function MyHero(props) {
       ref.current.scale.x = THREE.MathUtils.lerp(1, 2.5, r1)
       ref.current.scale.y = THREE.MathUtils.lerp(1, 2.5, r1)
       ref.current.scale.z = THREE.MathUtils.lerp(1, 2.5, r1)
-    } else if (r4 < 1) {
-      ref.current.scale.x = THREE.MathUtils.lerp(2.5, 10, r4)
-      ref.current.scale.y = THREE.MathUtils.lerp(2.5, 10, r4)
-      ref.current.scale.z = THREE.MathUtils.lerp(2.5, 10, r4)
     } else {
       outerRef.current.material.opacity = THREE.MathUtils.lerp(0.85, 0, r5)
       innerRef.current.material.opacity = THREE.MathUtils.lerp(1, 0, r5)
-      ref.current.scale.x = THREE.MathUtils.lerp(10, 2, r5)
-      ref.current.scale.y = THREE.MathUtils.lerp(10, 2, r5)
-      ref.current.scale.z = THREE.MathUtils.lerp(10, 2, r5)
+      ref.current.scale.x = THREE.MathUtils.lerp(2.5, 2, r5)
+      ref.current.scale.y = THREE.MathUtils.lerp(2.5, 2, r5)
+      ref.current.scale.z = THREE.MathUtils.lerp(2.5, 2, r5)
     }
 
   })
