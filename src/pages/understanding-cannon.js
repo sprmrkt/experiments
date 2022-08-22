@@ -33,7 +33,7 @@ function PhysicsPage() {
             // allowSleep={true}
             broadphase={'SAP'}
             gravity={[0, 0, 0]}
-            defaultContactMaterial={{ friction: 0.1, restitution: 0.8 }}>
+            defaultContactMaterial={{ friction: 0.1, restitution: 0.1 }}>
             <Debug color="black" scale={1.1}>
             <UnderstandingCannonInner/>
             </Debug>
