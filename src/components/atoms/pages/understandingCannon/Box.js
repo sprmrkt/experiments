@@ -1,4 +1,4 @@
-import React, {forwardRef, useRef} from 'react';
+import React from 'react';
 import {useBox, useSpring} from "@react-three/cannon";
 
 const Box = (props) => {
@@ -18,10 +18,7 @@ const Box = (props) => {
   })
 
   return (
-    <mesh ref={ref}>
-      <boxBufferGeometry args={args} />
-      <meshNormalMaterial />
-    </mesh>
+    <mesh ref={ref} material={props.mat} geometry={props.geo}/>
   )
 }
 

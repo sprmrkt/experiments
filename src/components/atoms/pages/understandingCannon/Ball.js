@@ -8,9 +8,8 @@ const Ball = forwardRef((props, fwdRef) => {
     position.set((mouse.x * viewport.width) / 2, (mouse.y * viewport.height) / 2, 0),
   )
   return (
-    <mesh ref={ref}>
+    <mesh ref={ref} material={props.mat}>
       <sphereBufferGeometry args={[0.5, 64, 64]} />
-      <meshNormalMaterial />
     </mesh>
   )
 })
