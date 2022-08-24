@@ -1,5 +1,6 @@
 import React from 'react';
 import {useBox, useSpring} from "@react-three/cannon";
+import {Instance} from "@react-three/drei";
 
 const Box = (props) => {
   const args = [0.5, 0.5, 0.5]
@@ -13,12 +14,13 @@ const Box = (props) => {
 
   useSpring(ref, props.ballRef, {
     damping: 1,
-    restLength: 2,
+    restLength: props.restLength,
     stiffness: 100,
   })
 
   return (
-    <mesh ref={ref} material={props.mat} geometry={props.geo}/>
+    // <mesh ref={ref} material={props.mat} geometry={props.geo}/>
+    <Instance ref={ref}/>
   )
 }
 

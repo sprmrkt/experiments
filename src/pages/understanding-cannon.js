@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Suspense} from "react";
 import Seo from "../components/molecules/Seo";
 import styled from "styled-components";
 import CanvasHolder from "../components/atoms/CanvasHolder";
@@ -29,15 +29,17 @@ function PhysicsPage() {
           <axesHelper args={[5]} />
           <ambientLight intensity={0.8} />
           <DefaultDirectionalLight />
-          <Physics
-            // allowSleep={true}
-            broadphase={'SAP'}
-            gravity={[0, 0, 0]}
-            defaultContactMaterial={{ friction: 0.1, restitution: 0.1 }}>
-            <Debug color="black" scale={1.1}>
-            <UnderstandingCannonInner/>
-            </Debug>
-          </Physics>
+          <Suspense fallback={null}>
+            <Physics
+              // allowSleep={true}
+              broadphase={'SAP'}
+              gravity={[0, 0, 0]}
+              defaultContactMaterial={{friction: 0.1, restitution: 0.01}}>
+              <Debug color="black" scale={1.1}>
+                <UnderstandingCannonInner />
+              </Debug>
+            </Physics>
+          </Suspense>
         </Canvas>
       </CanvasHolder>
     </Holder>
