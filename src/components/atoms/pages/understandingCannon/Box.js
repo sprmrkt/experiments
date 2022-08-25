@@ -15,7 +15,7 @@ const Box = (props) => {
   useSpring(ref, props.ballRef, {
     damping: 1,
     restLength: props.restLength,
-    stiffness: 100,
+    stiffness: 50,
   })
 
   return (
