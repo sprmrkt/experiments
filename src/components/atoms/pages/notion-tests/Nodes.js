@@ -6,7 +6,7 @@ const Nodes = (props) => {
 
   const boxes = [];
   for (let i = 0; i < props.count; i++) {
-    boxes.push(<Node ballRef={props.ballRef} key={i}  restLength={props.restLength}/>);
+    boxes.push(<Node anchorRef={props.anchorRef} key={i}  restLength={props.restLength}/>);
   }
   return (
     <Instances range={props.count} material={props.mat} geometry={props.geo}>

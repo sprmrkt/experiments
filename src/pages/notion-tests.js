@@ -34,18 +34,12 @@ function NotionTests() {
           <ambientLight intensity={0.5} />
           <DefaultDirectionalLight />
           <Suspense fallback={null}>
-            <ScrollControls pages={5}>
+            <ScrollControls pages={10}>
               <CameraRig />
               <PhysicsHolder>
-                <Physics
-                  // allowSleep={true}
-                  broadphase={'SAP'}
-                  gravity={[0, 0, 0]}
-                  defaultContactMaterial={{friction: 0.1, restitution: 1}}>
-                  {/*<Debug color="white" scale={1.1}>*/}
-                  <NotionInner />
-                  {/*</Debug>*/}
-                </Physics>
+                {/*<Debug color="white" scale={1.1}>*/}
+                <NotionInner />
+                {/*</Debug>*/}
               </PhysicsHolder>
             </ScrollControls>
           </Suspense>
