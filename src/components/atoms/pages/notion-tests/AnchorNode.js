@@ -8,7 +8,7 @@ import * as THREE from "three";
 const AnchorNode = forwardRef((props, fwdRef) => {
   const [ref, api] = useSphere(() => ({args: [0.05], type: 'Kinematic', ...props}), fwdRef)
   const data = useScroll()
-  const cameraY = -2
+  const cameraY = -5
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime()

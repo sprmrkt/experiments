@@ -5,12 +5,11 @@ import CanvasHolder from "../components/atoms/CanvasHolder";
 import {Canvas} from "@react-three/fiber";
 import DefaultDirectionalLight from "../components/atoms/DefaultDirectionalLight";
 import {useWindowSize} from "react-use";
-import {OrbitControls, ScrollControls} from "@react-three/drei";
-import {Physics, Debug} from '@react-three/cannon'
-import UnderstandingCannonInner from "../components/atoms/pages/understandingCannon/UnderstandingCannonInner";
+import {ScrollControls} from "@react-three/drei";
 import NotionInner from "../components/atoms/pages/notion-tests/NotionInner";
 import PhysicsHolder from "../components/atoms/pages/notion-tests/PhysicsHolder";
 import CameraRig from "../components/atoms/pages/notion-tests/CameraRig";
+import {Debug} from "@react-three/cannon";
 
 const Holder = styled.div`
   background-color: #100418;
@@ -37,9 +36,9 @@ function NotionTests() {
             <ScrollControls pages={10}>
               <CameraRig />
               <PhysicsHolder>
-                {/*<Debug color="white" scale={1.1}>*/}
-                <NotionInner />
-                {/*</Debug>*/}
+                <Debug color="white" scale={1.01}>
+                  <NotionInner />
+                </Debug>
               </PhysicsHolder>
             </ScrollControls>
           </Suspense>

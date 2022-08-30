@@ -4,6 +4,7 @@ import AnchorNode from "./AnchorNode";
 import Nodes from "./Nodes";
 import {useFrame} from "@react-three/fiber";
 import {useScroll} from "@react-three/drei";
+import PhysicsContainer from "./PhysicsContainer";
 
 const grey = new THREE.Color( 0x2D2830 );
 const purple = new THREE.Color( 0x6026F5 );
@@ -80,6 +81,8 @@ function UnderstandingCannonInner() {
       <Nodes anchorRef={heroAnchor} mat={primaryMat} geo={nodeGeo} count={150} restLength={restLengthChanged ? 1 : 2.05} />
       <Nodes anchorRef={secondaryAnchor} mat={secondaryMat} geo={nodeGeo} count={150} restLength={restLengthChanged ? 3 : 2} />
       <Nodes anchorRef={tertiaryAnchor} mat={tertiaryMat} geo={nodeGeo} count={150} restLength={1.95} />
+
+      <PhysicsContainer roof={false} yPos={-7} width={2} depth={0.25} height={4}/>
     </>
   )
 }
