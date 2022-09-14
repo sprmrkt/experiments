@@ -36,9 +36,9 @@ function NotionTests() {
             <ScrollControls pages={10}>
               <CameraRig />
               <PhysicsHolder>
-                <Debug color="white" scale={1.01}>
+                {/*<Debug color="white" scale={1.01}>*/}
                   <NotionInner />
-                </Debug>
+                {/*</Debug>*/}
               </PhysicsHolder>
             </ScrollControls>
           </Suspense>
