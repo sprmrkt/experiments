@@ -27,8 +27,7 @@ function DataVis() {
       MouseConstraint = Matter.MouseConstraint,
       Mouse = Matter.Mouse,
       Events = Matter.Events,
-      Things = Matter.Composite,
-      WashingMachine = Matter.Composite,
+      Composite = Matter.Composite,
       Bodies = Matter.Bodies;
 
     // create engine
@@ -59,10 +58,10 @@ function DataVis() {
       return Bodies.rectangle(x, y, 30, 30);
     });
 
-    Things.add(world, stack);
+    Composite.add(world, stack);
 
     // Add walls
-    WashingMachine.add(world, [
+    let washingMachine = Composite.add(world, [
       // walls
       Bodies.rectangle(300, 100, 400, 10, {isStatic: true}),
       Bodies.rectangle(300, 500, 400, 10, {isStatic: true}),
@@ -72,9 +71,36 @@ function DataVis() {
 
     let center = Matter.Vector.create(300,300)
 
+    // Set some base variables for the rotation animation
+    let counter = 0;
+    let whereItIs = 0;
+    let interval = 6; // Seconds for the interval. The animation will use half of this and then we will pause for half
+
+    // Our easing function for the washing machine animation
+    let bowEasing = (x, timeFraction) => {
+      return Math.pow(timeFraction, 2) * ((x + 1) * timeFraction - x)
+    }
+
+    // Our animation loop
     Events.on(runner, 'afterTick', function(event) {
-      // Body.setAngularVelocity(compound, 0.02);
-      WashingMachine.rotate(world, 0.002, center);
+      // Increase counter every time. The counter serves as a millisecond
+      // (though I am not sure it actually equals that exactly, I suspect not)
+      counter += 1;
+
+      // Find out where the rotation needs be from 0 to 90deg
+      let whereItShouldBe = Math.PI / 2 * Math.min(1, bowEasing(1.5, counter/60/(interval/2) ));
+      // The increment we need to use to rotate the composite is where it should be minus where it is.
+      // Find that and use it on the washing machine composite.
+      let increment = whereItShouldBe - whereItIs;
+      Composite.rotate(washingMachine, increment, center);
+      // Update where the washing machine is for the next loop
+      whereItIs = whereItShouldBe
+
+      // Reset the counter at the end of each interval
+      if (counter >= 60 * interval) {
+        counter = 0;
+      }
+
     });
 
   }, []);
