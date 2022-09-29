@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import Seo from "../components/molecules/Seo";
 import styled from "styled-components";
 import Matter from 'matter-js';
-import {useWindowSize} from "react-use";
+import 'pathseg';
 
 const CanvasHolder = styled.div`
   width: 100%;
@@ -28,7 +28,12 @@ function DataVis() {
       Mouse = Matter.Mouse,
       Events = Matter.Events,
       Composite = Matter.Composite,
+      Svg = Matter.Svg,
+      Vertices = Matter.Vertices,
       Bodies = Matter.Bodies;
+
+    // // provide concave decomposition support library
+    Common.setDecomp(require('poly-decomp'));
 
     // create engine
     let engine = Engine.create(),
@@ -54,13 +59,73 @@ function DataVis() {
     Runner.run(runner, engine);
 
     // Add bodies
-    let stack = Composites.stack(200, 250, 10, 5, 0, 0, function (x, y) {
-      return Bodies.rectangle(x, y, 30, 30);
-    });
 
-    Composite.add(world, stack);
+    if (typeof fetch !== 'undefined') {
 
+      let select = function (root, selector) {
+        return Array.prototype.slice.call(root.querySelectorAll(selector));
+      };
+
+      let loadSvg = function (url) {
+        return fetch(url)
+          .then(function (response) {
+            return response.text();
+          })
+          .then(function (raw) {
+            return (new window.DOMParser()).parseFromString(raw, 'image/svg+xml');
+          });
+      };
+
+
+      ([
+        './logo-gen/s.svg',
+        './logo-gen/u.svg',
+        './logo-gen/p-fill.svg',
+        './logo-gen/e.svg',
+        './logo-gen/r-fill.svg',
+        './logo-gen/m.svg',
+        './logo-gen/a-fill.svg',
+        './logo-gen/r-fill.svg',
+        './logo-gen/k.svg',
+        './logo-gen/e.svg',
+        './logo-gen/t.svg',
+      ]).forEach(function (path, i) {
+        loadSvg(path).then(function (root) {
+          console.log(root)
+          let color = Common.choose(['#f19648', '#f5d259', '#f55a3c', '#063e7b', '#ececd1']);
+
+          let vertexSets = select(root, 'path')
+            .map(function (path) {
+              return Vertices.scale(Svg.pathToVertices(path, 5), 2, 2);
+            });
+
+          console.log(vertexSets)
+
+
+          Composite.add(world, Bodies.fromVertices(150 + i * 30, 300, vertexSets, {
+            render: {
+              fillStyle: color,
+              strokeStyle: color,
+              lineWidth: 1
+            }
+          }, true))
+
+
+        });
+      });
+
+
+      // let stack = Composites.stack(200, 250, 10, 5, 0, 0, function (x, y) {
+      //   return Bodies.rectangle(x, y, 30, 30);
+      // });
+      // Composite.add(world, stack);
+
+    } else {
+      Common.warn('Fetch is not available. Could not load SVG.');
+    }
+    
     // Add walls
+    // let washingMachine = Composite.create([{label: 'washingMachine'}])
     let washingMachine = Composite.add(world, [
       // walls
       Bodies.rectangle(300, 100, 400, 10, {isStatic: true}),
@@ -69,7 +134,7 @@ function DataVis() {
       Bodies.rectangle(100, 300, 10, 400, {isStatic: true})
     ]);
 
-    let center = Matter.Vector.create(300,300)
+    let center = Matter.Vector.create(300, 300)
 
     // Set some base variables for the rotation animation
     let counter = 0;
@@ -82,13 +147,13 @@ function DataVis() {
     }
 
     // Our animation loop
-    Events.on(runner, 'afterTick', function(event) {
+    Events.on(runner, 'afterTick', function (event) {
       // Increase counter every time. The counter serves as a millisecond
       // (though I am not sure it actually equals that exactly, I suspect not)
       counter += 1;
 
       // Find out where the rotation needs be from 0 to 90deg
-      let whereItShouldBe = Math.PI / 2 * Math.min(1, bowEasing(1.5, counter/60/(interval/2) ));
+      let whereItShouldBe = Math.PI / 2 * Math.min(1, bowEasing(1.5, counter / 60 / (interval / 2)));
       // The increment we need to use to rotate the composite is where it should be minus where it is.
       // Find that and use it on the washing machine composite.
       let increment = whereItShouldBe - whereItIs;
