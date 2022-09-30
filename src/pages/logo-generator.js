@@ -83,6 +83,8 @@ function DataVis() {
       }
     });
 
+    Render.setPixelRatio(render, 'auto')
+
     Render.run(render);
 
     // create runner
