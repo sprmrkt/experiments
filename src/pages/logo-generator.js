@@ -42,7 +42,9 @@ function DataVis() {
     Common.setDecomp(require('poly-decomp'));
 
     // create engine
-    let engine = Engine.create(),
+    let engine = Engine.create({
+        enableSleeping: true
+      }),
       world = engine.world;
 
     // create renderer
