@@ -3,6 +3,26 @@ import Seo from "../components/molecules/Seo";
 import styled from "styled-components";
 import Matter from 'matter-js';
 import 'pathseg';
+import s from '../../static/logo-gen/svg/s.svg';
+import u from '../../static/logo-gen/svg/u.svg';
+import p from '../../static/logo-gen/svg/p.svg';
+import e from '../../static/logo-gen/svg/e.svg';
+import r from '../../static/logo-gen/svg/r.svg';
+import m from '../../static/logo-gen/svg/m.svg';
+import a from '../../static/logo-gen/svg/a.svg';
+import k from '../../static/logo-gen/svg/k.svg';
+import t from '../../static/logo-gen/svg/t.svg';
+import sImg from '../../static/logo-gen/png/s.png';
+import uImg from '../../static/logo-gen/png/u.png';
+import pImg from '../../static/logo-gen/png/p.png';
+import eImg from '../../static/logo-gen/png/e.png';
+import rImg from '../../static/logo-gen/png/r.png';
+import mImg from '../../static/logo-gen/png/m.png';
+import aImg from '../../static/logo-gen/png/a.png';
+import r2Img from '../../static/logo-gen/png/r2.png';
+import kImg from '../../static/logo-gen/png/k.png';
+import e2Img from '../../static/logo-gen/png/e2.png';
+import tImg from '../../static/logo-gen/png/t.png';
 
 const CanvasHolder = styled.div`
   width: 100%;
@@ -12,6 +32,8 @@ const CanvasHolder = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #111111;
+
   button {
     margin: 10px 0;
   }
@@ -56,6 +78,7 @@ function DataVis() {
         width: 600,
         height: 600,
         wireframes: false,
+        background: '#111111',
         // showAngleIndicator: true,
       }
     });
@@ -87,25 +110,25 @@ function DataVis() {
 
 
       ([
-        {svg: './logo-gen/svg/s.svg', png: './logo-gen/png/s.png', offset:{x:0,y:0}},
-        {svg: './logo-gen/svg/u.svg', png: './logo-gen/png/u.png', offset:{x:0,y:3}},
-        {svg: './logo-gen/svg/p.svg', png: './logo-gen/png/p.png', offset:{x:-5,y:-9}},
-        {svg: './logo-gen/svg/e.svg', png: './logo-gen/png/e.png', offset:{x:-3,y:0}},
-        {svg: './logo-gen/svg/r.svg', png: './logo-gen/png/r.png', offset:{x:-2,y:-2}},
-        {svg: './logo-gen/svg/m.svg', png: './logo-gen/png/m.png', offset:{x:0,y:0}},
-        {svg: './logo-gen/svg/a.svg', png: './logo-gen/png/a.png', offset:{x:0,y:4}},
-        {svg: './logo-gen/svg/r.svg', png: './logo-gen/png/r2.png', offset:{x:-2,y:-2}},
-        {svg: './logo-gen/svg/k.svg', png: './logo-gen/png/k.png', offset:{x:-8,y:0}},
-        {svg: './logo-gen/svg/e.svg', png: './logo-gen/png/e2.png', offset:{x:-3,y:0}},
-        {svg: './logo-gen/svg/t.svg', png: './logo-gen/png/t.png', offset:{x:0,y:-11}},
+        {svg: s, png: sImg, offset:{x:0,y:0}},
+        {svg: u, png: uImg, offset:{x:0,y:3}},
+        {svg: p, png: pImg, offset:{x:-5,y:-9}},
+        {svg: e, png: eImg, offset:{x:-3,y:0}},
+        {svg: r, png: rImg, offset:{x:-2,y:-2}},
+        {svg: m, png: mImg, offset:{x:0,y:0}},
+        {svg: a, png: aImg, offset:{x:0,y:4}},
+        {svg: r, png: r2Img, offset:{x:-2,y:-2}},
+        {svg: k, png: kImg, offset:{x:-8,y:0}},
+        {svg: e, png: e2Img, offset:{x:-3,y:0}},
+        {svg: t, png: tImg, offset:{x:0,y:-11}},
       ]).forEach(function (letter, i) {
         loadSvg(letter.svg).then(function (root) {
-          // let color = Common.choose(['#f19648', '#f5d259', '#f55a3c', '#063e7b', '#ececd1']);
 
           let vertexSets = select(root, 'path')
             .map(function (path) {
               return Vertices.scale(Svg.pathToVertices(path, 3), 2, 2);
             });
+
 
           let x = i % 4 * 75 + 175
           let y = Math.floor(i / 4) * 75 + 175
@@ -143,7 +166,7 @@ function DataVis() {
             bodyA: body,
             pointA: {x: 0, y: 10},
             bodyB: spriteHolder,
-            pointB: {x: 0 + letter.offset.x, y: 10 + letter.offset.y},
+            pointB: {x: letter.offset.x, y: 10 + letter.offset.y},
             length: 0,
             render: {
               visible: false
@@ -153,7 +176,7 @@ function DataVis() {
             bodyA: body,
             pointA: {x: 0, y: -10},
             bodyB: spriteHolder,
-            pointB: {x: 0 + letter.offset.x, y: -10 + letter.offset.y},
+            pointB: {x: letter.offset.x, y: -10 + letter.offset.y},
             length: 0,
             render: {
               visible: false
@@ -180,7 +203,18 @@ function DataVis() {
       Bodies.rectangle(300, 100, 400, 50, {isStatic: true, slop: 0, render: { visible: false }}),
       Bodies.rectangle(300, 500, 400, 50, {isStatic: true, slop: 0, render: { visible: false }}),
       Bodies.rectangle(500, 300, 50, 400, {isStatic: true, slop: 0, render: { visible: false }}),
-      Bodies.rectangle(100, 300, 50, 400, {isStatic: true, slop: 0, render: { visible: false }})
+      Bodies.rectangle(100, 300, 50, 400, {isStatic: true, slop: 0, render: { visible: false }}),
+      Bodies.rectangle(300, 300, 400, 400, {
+        isStatic: true,
+        slop: 0,
+        collisionFilter: {
+          mask: 0,
+        },
+        render: {
+          fillStyle: '#000000',
+          strokeStyle: 'none',
+        }
+      })
     ]);
     Composite.add(world, washingMachine)
 

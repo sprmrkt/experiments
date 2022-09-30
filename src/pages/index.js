@@ -38,6 +38,30 @@ const IndexPage = () => (
       <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <ul>
         <li>
+          <Link to={'/logo-generator'}>Logo Generator</Link>
+          <div className="image-holder">
+            <Image imgName={'logo-gen-fi.png'}/>
+          </div>
+        </li>
+        <li>
+          <Link to={'/understanding-cannon'}>Understanding cannon</Link>
+          <div className="image-holder">
+            <Image imgName={'understanding-cannon.png'}/>
+          </div>
+        </li>
+        <li>
+          <Link to={'/notion-tests'}>Scrolling particle formations 2</Link>
+          <div className="image-holder">
+            <Image imgName={'data-vis-2.png'}/>
+          </div>
+        </li>
+        <li>
+          <Link to={'/data-vis'}>Scrolling particle formations 1</Link>
+          <div className="image-holder">
+            <Image imgName={'data-vis-1.png'}/>
+          </div>
+        </li>
+        <li>
           <Link to={'/physics'}>Physics</Link>
           <div className="image-holder">
             <Image imgName={'physics.png'}/>
@@ -60,12 +84,6 @@ const IndexPage = () => (
           <div className="image-holder">
             <Image imgName={'galaxy.jpg'}/>
           </div>
-        </li>
-        <li>
-          <Link to={'/vr-test'}>VR test</Link>
-        </li>
-        <li>
-          <Link to={'/data-vis'}>Data vis</Link>
         </li>
       </ul>
     </Holder>
