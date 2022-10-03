@@ -8,19 +8,11 @@ import {useWindowSize} from "react-use";
 import {Box, OrbitControls} from "@react-three/drei";
 import {Helix} from "../components/atoms/pages/shape-stack-tool/shapes/Helix";
 import * as THREE from "three";
+import {Debug, Physics, RigidBody} from "@react-three/rapier";
+import ShapeStackInner from "../components/atoms/pages/shape-stack-tool/ShapeStackInner";
 
 const Holder = styled.div`
 `;
-
-// Materials
-const red = new THREE.Color( 0xFE5030 ).convertSRGBToLinear();
-const pink = new THREE.Color( 0xFAA8C0 ).convertSRGBToLinear();
-const green = new THREE.Color( 0x478953 ).convertSRGBToLinear();
-const yellow = new THREE.Color( 0xFED63F ).convertSRGBToLinear();
-const white = new THREE.Color( 0xFFFFFF ).convertSRGBToLinear();
-const redMat = new THREE.MeshStandardMaterial({
-  color: red,
-})
 
 function ShapeStackTool() {
   const size = useWindowSize()
@@ -37,11 +29,14 @@ function ShapeStackTool() {
           }}>
           <OrbitControls />
           <axesHelper args={[5]} />
-          <ambientLight intensity={0.5} color={'white'}/>
-          <DefaultDirectionalLight intensity={0.4} debug/>
-          <DefaultDirectionalLight intensity={0.4} position={[-5, -10, -5]} debug/>
+          <ambientLight intensity={0.5} color={'white'} />
+          <DefaultDirectionalLight intensity={0.4} />
+          <DefaultDirectionalLight intensity={0.4} position={[-5, -10, -5]} />
           <Suspense fallback={null}>
-            <Helix mat={redMat} scale={1}/>
+            <Physics>
+              <Debug color="red" sleepColor="blue" />
+              <ShapeStackInner />
+            </Physics>
           </Suspense>
         </Canvas>
       </CanvasHolder>
