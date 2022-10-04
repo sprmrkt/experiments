@@ -33,8 +33,9 @@ function ShapeStackTool() {
           <DefaultDirectionalLight intensity={0.4} />
           <DefaultDirectionalLight intensity={0.4} position={[-5, -10, -5]} />
           <Suspense fallback={null}>
-            <Physics>
-              <Debug color="red" sleepColor="blue" />
+            <Physics
+            gravity={[0,-9.8,0]}>
+              <Debug color="white" sleepColor="grey" />
               <ShapeStackInner />
             </Physics>
           </Suspense>
