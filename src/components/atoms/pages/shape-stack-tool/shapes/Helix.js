@@ -14,7 +14,7 @@ export function Helix(props) {
         material={props.mat}
         position={[0,0,0]}
         rotation={[-Math.PI / 2, 0, 0]}
-        scale={0.02} />
+        scale={0.04} />
     </group>
   )
 }

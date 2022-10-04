@@ -24,7 +24,7 @@ function ShapeStackTool() {
         <Canvas
           shadows
           camera={{
-            position: [0, 5, size.width > 576 ? 15 : 20],
+            position: [0, 5, size.width > 576 ? 30 : 40],
             fov: 40,
           }}>
           <OrbitControls />
@@ -34,8 +34,8 @@ function ShapeStackTool() {
           <DefaultDirectionalLight intensity={0.4} position={[-5, -10, -5]} />
           <Suspense fallback={null}>
             <Physics
-            gravity={[0,-9.8,0]}>
-              <Debug color="white" sleepColor="grey" />
+            gravity={[0,-40,0]}>
+              {/*<Debug color="white" sleepColor="grey" />*/}
               <ShapeStackInner />
             </Physics>
           </Suspense>

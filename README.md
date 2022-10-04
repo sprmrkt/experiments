@@ -19,11 +19,15 @@ Master branch set to auto deploy to superd.netlify.app
 
 ### React Three Fibre
 
+#### Notes
 - If you use a global material with a three js color you need to convert that color using `.convertSRGBToLinear()` otherwise the colour looks completely wrong.
 ```
 const red = new THREE.Color( 0xFE5030 ).convertSRGBToLinear();
 const redMat = new THREE.MeshStandardMaterial({color: red,})
 ```
+#### Resources
+- https://0xca0a.gumroad.com/l/B4N4N4S
+
 
 ### React XR
 
@@ -33,5 +37,6 @@ const redMat = new THREE.MeshStandardMaterial({color: red,})
 
 - Trimesh colliders are for open objects (like terrain). They are hollow so things can get stuck in them.
 - Hull colliders are for solid objects
+- Make sure your shapes aren't too thin. If they are things will push through them, they will struggle to ever stay still enough to go to sleep and the things will get stuck in them. 0.1 is too thin.
 
 ### Vectary

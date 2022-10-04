@@ -38,9 +38,6 @@ function ShapeStackInner() {
         <Lozenger mat={yellowMat} position={[0,0,0]}/>
       </RigidBody>
       <RigidBody colliders={"hull"}>
-        <Lozenger mat={redMat} position={[0, 0,0]}/>
-      </RigidBody>
-      <RigidBody colliders={"hull"}>
         <PyramidShape mat={pinkMat}/>
       </RigidBody>
       <RigidBody colliders={"hull"}>
@@ -50,7 +47,9 @@ function ShapeStackInner() {
         <Star mat={yellowMat}/>
       </RigidBody>
       <RigidBody colliders={"ball"}>
-        <Sphere args={[1]}/>
+        <Sphere args={[2]}>
+          <meshStandardMaterial color={red}/>
+        </Sphere>
       </RigidBody>
 
       <StackHolder/>

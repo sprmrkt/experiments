@@ -9,7 +9,7 @@ export function Arc(props) {
   const { nodes } = useGLTF('/shape-stack-tool/arc.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Arc.geometry} material={props.mat} rotation={[-Math.PI / 2, 0, 0]} scale={0.02} />
+      <mesh geometry={nodes.Arc.geometry} material={props.mat} rotation={[-Math.PI / 2, 0, 0]} scale={0.04} />
     </group>
   )
 }
