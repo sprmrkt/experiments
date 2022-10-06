@@ -38,6 +38,12 @@ const IndexPage = () => (
       <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <ul>
         <li>
+          <Link to={'/shape-stack-tool'}>Dishwasher</Link>
+          <div className="image-holder">
+            <Image imgName={'dishwasher.png'}/>
+          </div>
+        </li>
+        <li>
           <Link to={'/logo-generator'}>Logo Generator</Link>
           <div className="image-holder">
             <Image imgName={'logo-gen-fi.png'}/>
