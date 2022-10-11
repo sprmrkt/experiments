@@ -14,7 +14,6 @@ const Holder = styled.div`
 `;
 
 function Explainer() {
-  const size = useWindowSize()
 
   return (
     <Holder>
@@ -23,7 +22,7 @@ function Explainer() {
         <Canvas
           shadows
           camera={{
-            position: [0, 0, size.width > 576 ? 3.25 : 6],
+            position: [0, 0, 0],
             fov: 30,
           }}>
           {/*<OrbitControls />*/}

@@ -25,7 +25,7 @@ function ActiveElements() {
     basketball.current.position.y = Math.sin(clock.getElapsedTime()* 5) * 0.1 - 0.4
 
     popup1.current.position.x = THREE.MathUtils.lerp(-2, 0, r1)
-    popup2.current.position.y = THREE.MathUtils.lerp(-2, 0, r2)
+    popup2.current.position.y = THREE.MathUtils.lerp(2, 0, r2)
     popup3.current.position.x = THREE.MathUtils.lerp(2, 0, r3)
   })
 
@@ -38,7 +38,7 @@ function ActiveElements() {
       <Blob scale={10} position={[-1,-0.5,0]}/>
       <Star scale={10} position={[0,-0.5,0]}/>
       <group ref={popup1}><PopUp scale={10} position={[-1,-0.5,0]}/></group>
-      <group ref={popup2}><PopUp2 scale={10} position={[-1,-0.5,0]}/></group>
+      <group ref={popup2}><PopUp2 scale={10} position={[-0.85,0.1,0]}/></group>
       <group ref={popup3}><PopUp3 scale={10} position={[-0.75,-0.5,0]}/></group>
     </group>
   )
