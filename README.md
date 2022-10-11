@@ -39,4 +39,12 @@ const redMat = new THREE.MeshStandardMaterial({color: red,})
 - Hull colliders are for solid objects
 - Make sure your shapes aren't too thin. If they are things will push through them, they will struggle to ever stay still enough to go to sleep and the things will get stuck in them. 0.1 is too thin.
 
+### GTLFJSX
+
+- Use -precision (or -p) flag for models if you are getting scale={0} issues (ie. you can't see your model). EG. `-p=6`
+- Use -root (or -r) flag for setting the root from which your model will be imported (https://github.com/pmndrs/gltfjsx/pull/34)
+- The overall idea is to try and not have to edit that generated file at all if you can. Otherwise everytime the design changes you will need to edit that file with any manual changes you made.
+
 ### Vectary
+
+- 
