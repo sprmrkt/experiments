@@ -6,11 +6,12 @@ import {Canvas} from "@react-three/fiber";
 import {Box, OrbitControls, ScrollControls} from "@react-three/drei";
 import DefaultDirectionalLight from "../components/atoms/DefaultDirectionalLight";
 import {useWindowSize} from "react-use";
-import {Model as Static} from "../components/atoms/pages/explainer/models/Explainer-poc-static";
+import {Model as Static} from "../components/atoms/pages/explainer/models/Ttc-explainer-poc-static";
 import ActiveElements from "../components/atoms/pages/explainer/ActiveElements";
 import CameraRig from "../components/atoms/pages/explainer/CameraRig";
 
 const Holder = styled.div`
+  background-color: rgb(0, 29, 108);
 `;
 
 function Explainer() {
@@ -22,18 +23,19 @@ function Explainer() {
         <Canvas
           shadows
           camera={{
-            position: [0, 0, 0],
+            position: [0, 0, 10],
             fov: 30,
           }}>
-          {/*<OrbitControls />*/}
-          <ScrollControls pages={5}>
-            {/*<axesHelper args={[5]} />*/}
-            <ambientLight intensity={0.3} />
-            <DefaultDirectionalLight />
-            <CameraRig/>
-            <Static scale={10} position={[0, -0.5, 0]} />
+          <OrbitControls />
+          {/*<ScrollControls pages={5}>*/}
+          <axesHelper args={[5]} />
+          <ambientLight intensity={0.4} />
+          <DefaultDirectionalLight />
+          {/*<CameraRig/>*/}
+            <Static scale={25} position={[0, 0, 0]} />
+            {/*<Box args={[10,10,10]}/>*/}
             <ActiveElements />
-          </ScrollControls>
+          {/*</ScrollControls>*/}
         </Canvas>
       </CanvasHolder>
     </Holder>
