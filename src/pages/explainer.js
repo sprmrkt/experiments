@@ -17,6 +17,7 @@ const Holder = styled.div`
 const scenes = 8;
 
 function Explainer() {
+  const size = useWindowSize()
 
   return (
     <Holder>
@@ -25,7 +26,7 @@ function Explainer() {
         <Canvas
           shadows
           camera={{
-            position: [-2, 0, -30],
+            position: [-2, 0, size.width > 576 ? -30 : -40],
             fov: 40,
             rotation: [0, -Math.PI, 0]
           }}>

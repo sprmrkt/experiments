@@ -18,7 +18,7 @@ function CameraRig({scenes}) {
     if(ranges[0] < 1) {
       state.camera.position.y = THREE.MathUtils.lerp(-20, 0, ranges[0])
     } else if(ranges[1] < 1) {
-      state.camera.position.z = THREE.MathUtils.lerp(-30, 30, ranges[1])
+      state.camera.position.z = THREE.MathUtils.lerp(size.width > 576 ? -30 : -40, size.width > 576 ? 30 : 40, ranges[1])
       state.camera.position.x = THREE.MathUtils.lerp(-2, 0, ranges[1])
       state.camera.rotation.y = THREE.MathUtils.lerp(-Math.PI, 0, specialRotationRange)
     } else if(ranges[3] < 1) {
