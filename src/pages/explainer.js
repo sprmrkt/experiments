@@ -14,6 +14,8 @@ const Holder = styled.div`
   background-color: rgb(0, 29, 108);
 `;
 
+const scenes = 8;
+
 function Explainer() {
 
   return (
@@ -23,19 +25,21 @@ function Explainer() {
         <Canvas
           shadows
           camera={{
-            position: [0, 0, 10],
-            fov: 30,
+            position: [-2, 0, -30],
+            fov: 40,
+            rotation: [0, -Math.PI, 0]
           }}>
-          <OrbitControls />
-          {/*<ScrollControls pages={5}>*/}
-          <axesHelper args={[5]} />
-          <ambientLight intensity={0.4} />
-          <DefaultDirectionalLight />
-          {/*<CameraRig/>*/}
-            <Static scale={25} position={[0, 0, 0]} />
-            {/*<Box args={[10,10,10]}/>*/}
-            <ActiveElements />
-          {/*</ScrollControls>*/}
+          {/*<OrbitControls />*/}
+          <ScrollControls pages={10}>
+            {/*<axesHelper args={[5]} />*/}
+            <ambientLight intensity={0.4} />
+            <DefaultDirectionalLight />
+            <CameraRig scenes={scenes} />
+            <group position={[0, -5, 0]}>
+              <Static scale={25} />
+              <ActiveElements scenes={scenes} />
+            </group>
+          </ScrollControls>
         </Canvas>
       </CanvasHolder>
     </Holder>

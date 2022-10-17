@@ -9,7 +9,7 @@ export function Model(props) {
   const { nodes, materials } = useGLTF('/explainer/v2/ttc-explainer-poc-lady-head.glb')
   return (
     <group {...props} dispose={null}>
-      <group position={[0.400302, 0.4, 0.024733]} rotation={[-Math.PI / 2, 0, 0]} scale={0.001559}>
+      <group position={[0,0,0]} rotation={[-Math.PI / 2, 0, 0]} scale={0.001559}>
         <mesh geometry={nodes.ear_4.geometry} material={materials.Purple} position={[66, 1.580784, 89.231462]} rotation={[Math.PI / 2, 0, 0]} scale={0.394923} />
         <mesh geometry={nodes.ear_5.geometry} material={materials.Purple} position={[-66, 1.580784, 89.231462]} rotation={[Math.PI / 2, 0, 0]} scale={0.394923} />
         <mesh geometry={nodes.hair_1.geometry} material={materials.Red} position={[-0.302015, 6.018971, 58.999998]} />

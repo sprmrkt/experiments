@@ -14,7 +14,7 @@ import {useFrame} from "@react-three/fiber";
 import {Box, Float, Sphere, useScroll} from "@react-three/drei";
 import * as THREE from "three";
 
-function ActiveElements() {
+function ActiveElements({scenes}) {
   // const basketball = useRef(null)
   const popup1 = useRef(null)
   const popup2 = useRef(null)
@@ -30,41 +30,96 @@ function ActiveElements() {
   const speech2 = useRef(null)
   const speech3 = useRef(null)
   const speech4 = useRef(null)
-  const polygon = useRef(null)
   const data = useScroll()
 
   useFrame(({clock}) => {
-  //   const r1 = data.range(0,0.1)
-  //   const r2 = data.range(0.2,0.2)
-  //   const r3 = data.range(0.6,0.2)
-    polygon.current.rotation.y = clock.getElapsedTime() * -2
-    polygon.current.position.y = Math.sin(clock.getElapsedTime()* 0.5) * 2
-  //
-  //   popup1.current.position.x = THREE.MathUtils.lerp(-2, 0, r1)
-  //   popup2.current.position.y = THREE.MathUtils.lerp(2, 0, r2)
-  //   popup3.current.position.x = THREE.MathUtils.lerp(2, 0, r3)
+
+    const ranges = []
+    for (let i = 0; i < scenes * 2 - 1; i++) {
+      ranges.push(data.range(i * (1 / (scenes * 2 - 1)), 1 / (scenes * 2 - 1)))
+    }
+
+    // Scene 2
+    miniman.current.rotation.y = THREE.MathUtils.lerp(Math.PI, 0, ranges[1])
+    miniman.current.position.x = THREE.MathUtils.lerp(0, -2, ranges[1])
+
+    // Scene 3
+    speech2.current.scale.x = THREE.MathUtils.lerp(0, 1, ranges[2])
+    speech2.current.scale.y = THREE.MathUtils.lerp(0, 1, ranges[2])
+    speech2.current.scale.z = THREE.MathUtils.lerp(0, 1, ranges[2])
+
+    // 3-4
+    popup3.current.scale.x = THREE.MathUtils.lerp(0, 1, ranges[3])
+    popup3.current.scale.y = THREE.MathUtils.lerp(0, 1, ranges[3])
+    popup3.current.scale.z = THREE.MathUtils.lerp(0, 1, ranges[3])
+
+    // Scene 4
+    popup2.current.scale.x = THREE.MathUtils.lerp(0, 1, ranges[4])
+    popup2.current.scale.y = THREE.MathUtils.lerp(0, 1, ranges[4])
+    popup2.current.scale.z = THREE.MathUtils.lerp(0, 1, ranges[4])
+
+    // 4-5
+    popup1.current.scale.x = THREE.MathUtils.lerp(0, 1, ranges[5])
+    popup1.current.scale.y = THREE.MathUtils.lerp(0, 1, ranges[5])
+    popup1.current.scale.z = THREE.MathUtils.lerp(0, 1, ranges[5])
+
+    // Scene 5
+    speech4.current.scale.x = THREE.MathUtils.lerp(0, 1, ranges[6])
+    speech4.current.scale.y = THREE.MathUtils.lerp(0, 1, ranges[6])
+    speech4.current.scale.z = THREE.MathUtils.lerp(0, 1, ranges[6])
+
+    // 5-6
+    speech3.current.scale.x = THREE.MathUtils.lerp(0, 1, ranges[7])
+    speech3.current.scale.y = THREE.MathUtils.lerp(0, 1, ranges[7])
+    speech3.current.scale.z = THREE.MathUtils.lerp(0, 1, ranges[7])
+
+    // Scene 6
+    manhead.current.rotation.y = THREE.MathUtils.lerp(0, Math.PI * 0.4, ranges[8])
+
+    // Scene 7
+    popup4.current.scale.x = THREE.MathUtils.lerp(0, 1, ranges[10])
+    popup4.current.scale.y = THREE.MathUtils.lerp(0, 1, ranges[10])
+    popup4.current.scale.z = THREE.MathUtils.lerp(0, 1, ranges[10])
+
+    // 6-7-8
+    if (ranges[9] < 1) {
+      headset.current.rotation.y = THREE.MathUtils.lerp(Math.PI * -0.4, 0, ranges[9])
+    } else if (ranges[10] < 1) {
+      headset.current.rotation.y = THREE.MathUtils.lerp(0, Math.PI * 2, ranges[10])
+    } else if (ranges[11] < 1) {
+      headset.current.rotation.y = THREE.MathUtils.lerp(0, Math.PI * 0.4, ranges[11])
+    }
+
+    // 7-8
+    ladyhead.current.rotation.y = THREE.MathUtils.lerp(-Math.PI * 0.4, 0, ranges[11])
+
+    // Scene 8
+    speech1.current.scale.x = THREE.MathUtils.lerp(0, 1, ranges[12])
+    speech1.current.scale.y = THREE.MathUtils.lerp(0, 1, ranges[12])
+    speech1.current.scale.z = THREE.MathUtils.lerp(0, 1, ranges[12])
+
+
   })
 
   return (
     <group>
-      <group ref={popup1}><Float><PopUp scale={25} position={[0,0,1]}/></Float></group>
-      <group ref={popup2}><Float><PopUp scale={25} position={[20,1,2]}/></Float></group>
-      <group ref={popup3}><Float><PopUp scale={25} position={[13,7,2]}/></Float></group>
-      <group ref={popup4}><Float><PopUp scale={25} position={[8,17,2]}/></Float></group>
+      <group ref={popup1} position={[-5, 1, 7]}><PopUp scale={25} /></group>
+      <group ref={popup2} position={[15, 1, 7]}><PopUp scale={25} /></group>
+      <group ref={popup3} position={[8, 7, 7]}><PopUp scale={25} /></group>
+      <group ref={popup4} position={[2, 17, 7]}><PopUp scale={25} /></group>
 
-      <group ref={headphones}><Headphones scale={25} position={[0,0,0]}/></group>
-      <group ref={headset}><Float><Headset scale={25} position={[-0.25,0,0]}/></Float></group>
-      <group ref={polygon}><Box args={[2,2,2]} position={[0,15,0]} rotation={[0, Math.PI/4, 0]}><meshStandardMaterial color={'#F02929'} flatShading={true}/></Box></group>
+      <group ref={headphones}><Headphones scale={25} /></group>
+      <group ref={headset}><Float><Headset scale={25} position={[-0.25, 0, 0]} /></Float></group>
 
-      <group ref={minilady}><MiniLady scale={25} position={[0,0,0]}/></group>
-      <group ref={miniman}><MiniMan scale={25} position={[0,0,0]}/></group>
-      <group ref={manhead}><Float><ManHead scale={25} position={[0,1,0]}/></Float></group>
-      <group ref={ladyhead}><Float><LadyHead scale={25} position={[0,1,0]}/></Float></group>
+      <group ref={minilady}><MiniLady scale={25} position={[0, 0, 0]} /></group>
+      <group ref={miniman}><MiniMan scale={25} position={[2, 0, 0]} /></group>
+      <group ref={manhead} position={[-10, 11, 0]}><Float><ManHead scale={25} /></Float></group>
+      <group ref={ladyhead} position={[10, 11, 0]}><Float><LadyHead scale={25} /></Float></group>
 
-      <group ref={speech1}><Speech1 scale={25} position={[0,0,0]}/></group>
-      <group ref={speech2}><Speech2 scale={25} position={[0,0,0]}/></group>
-      <group ref={speech3}><Speech3 scale={25} position={[0,0,0]}/></group>
-      <group ref={speech4}><Speech4 scale={25} position={[0,0,0]}/></group>
+      <group ref={speech1} position={[14, 15, 6]}><Speech1 scale={25} /></group>
+      <group ref={speech2} position={[-3.5, 6, 0]}><Speech2 scale={25} /></group>
+      <group ref={speech3} position={[-14, 10.5, 6]}><Speech3 scale={25} /></group>
+      <group ref={speech4} position={[-8, 4, 3]}><Speech4 scale={25} /></group>
     </group>
   )
 }

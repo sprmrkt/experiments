@@ -9,7 +9,7 @@ export function Model(props) {
   const { nodes, materials } = useGLTF('/explainer/v2/ttc-explainer-poc-speech3.glb')
   return (
     <group {...props} dispose={null}>
-      <group position={[-0.626116, 0.36, 0.2273]} rotation={[-Math.PI / 2, 0, 0]} scale={0.001299}>
+      <group position={[0,0,0]} rotation={[-Math.PI / 2, 0, 0]} scale={0.001299}>
         <group position={[0, -2.7, 25.4]}>
           <mesh geometry={nodes.Cylinder_3.geometry} material={materials.Blue} position={[20, 0, 10.338786]} rotation={[0, -Math.PI / 2, 0]} />
           <mesh geometry={nodes.Cylinder_2.geometry} material={materials.Blue} position={[20, 0, 24.6]} rotation={[0, -Math.PI / 2, 0]} />
