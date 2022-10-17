@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: `The Third Dimension`,
-    description: `A house and a home for our beautiful three-dee children`,
+    title: `Supermarket Experiments`,
+    description: `A home for technical experiments by Supermarket`,
     author: `Will McLean`,
-    siteUrl: `https://www.example.com`,
+    siteUrl: `https://superd.netlify.app`,
   },
   flags: {
     DEV_SSR: false,
