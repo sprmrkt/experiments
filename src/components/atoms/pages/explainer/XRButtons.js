@@ -1,29 +1,29 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {useExplainerStore} from "../../../../utils/myStore";
-import {Box, Sphere} from "@react-three/drei";
+import {Box, Circle, Cylinder, Sphere} from "@react-three/drei";
 import {Interactive} from "@react-three/xr";
 import {useFrame} from "@react-three/fiber";
 
 const nextPos = [
-  [2, -15, -10],
-  [2, 5, -10],
-  [10, 5, 6],
-  [-10, 5, 6],
-  [-10, 12, 6],
-  [0, 15, 6],
-  [10, 15, 6],
+  [0, -15, -7],
+  [-1, 3, -7],
+  [10, 5, 4],
+  [-10, 5, 4],
+  [-10, 15, 4],
+  [0, 15, 4],
+  [10, 15, 4],
   [0, 0, 0],
 ]
 
 const prevPos = [
-  [2, 3, 10],
-  [2, 3, -10],
-  [-2.5, 6, -5],
-  [0, 5, 3],
-  [10, 5, 6],
-  [-10, 5, 6],
-  [-10, 15, 6],
-  [0, 15, 6],
+  [0, 3, 10],
+  [0, -15, -7],
+  [-1, 6, -3],
+  [0, 5, 4],
+  [10, 5, 4],
+  [-10, 5, 4],
+  [-10, 15, 4],
+  [0, 15, 4],
 ]
 
 
@@ -37,25 +37,27 @@ function XRButtons() {
   const [prevHover, setPrevHover] = useState(false);
 
   useEffect(() => {
-    next.current.position.x = nextPos[scene][0]
-    next.current.position.y = nextPos[scene][1]
-    next.current.position.z = nextPos[scene][2]
-    prev.current.position.x = prevPos[scene][0]
-    prev.current.position.y = prevPos[scene][1]
-    prev.current.position.z = prevPos[scene][2]
+    if(next.current) {
+      next.current.position.x = nextPos[scene][0]
+      next.current.position.y = nextPos[scene][1]
+      next.current.position.z = nextPos[scene][2]
+      prev.current.position.x = prevPos[scene][0]
+      prev.current.position.y = prevPos[scene][1]
+      prev.current.position.z = prevPos[scene][2]
+    }
   }, [scene]);
 
   return (
     <group>
       <Interactive onSelect={increaseScene} onHover={() => setNextHover(true)} onBlur={() => setNextHover(false)}>
-        <Box ref={next}>
-          <meshStandardMaterial color={nextHover ? 'pink' : 'white'} />
-        </Box>
+        <Cylinder ref={next} args={[2,2,0.125,32]} rotation={[Math.PI/2,0,0]}>
+          <meshStandardMaterial color={nextHover ? '#cdfaaa' : '#b8fd6e'} transparent opacity={0.5}/>
+        </Cylinder>
       </Interactive>
       <Interactive onSelect={decreaseScene} onHover={() => setPrevHover(true)} onBlur={() => setPrevHover(false)}>
-        <Sphere ref={prev} args={[0.5]}>
-          <meshStandardMaterial color={prevHover ? 'pink' : 'white'} />
-        </Sphere>
+        <Cylinder ref={prev} args={[1,1,0.125,32]} rotation={[Math.PI/2,0,0]}>
+          <meshStandardMaterial color={prevHover ? '#d5b3ff' : '#b36efd'} transparent opacity={0.5}/>
+        </Cylinder>
       </Interactive>
     </group>
   )
