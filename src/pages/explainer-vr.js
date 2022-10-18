@@ -3,9 +3,8 @@ import Seo from "../components/molecules/Seo";
 import styled from "styled-components";
 import CanvasHolder from "../components/atoms/CanvasHolder";
 import {Canvas} from "@react-three/fiber";
-import DefaultDirectionalLight from "../components/atoms/DefaultDirectionalLight";
-import {Model as Static} from "../components/atoms/pages/explainer/models/Ttc-explainer-poc-static";
-import {Controllers, VRButton, XR} from "@react-three/xr";
+import {VRButton, XR} from "@react-three/xr";
+import XRInner from "../components/atoms/pages/explainer/XRInner";
 
 const Holder = styled.div`
   background-color: rgb(0, 29, 108);
@@ -21,12 +20,7 @@ function Explainer() {
         <VRButton />
         <Canvas>
           <XR>
-            <Controllers />
-            <ambientLight intensity={0.4} />
-            <DefaultDirectionalLight />
-            <group position={[0, -5, 0]}>
-              <Static scale={25} />
-            </group>
+            <XRInner />
           </XR>
         </Canvas>
       </CanvasHolder>
