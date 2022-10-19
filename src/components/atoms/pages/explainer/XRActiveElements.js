@@ -32,9 +32,9 @@ function XRActiveElements() {
   const speech4 = useRef(null)
   const scene = useExplainerStore((state) => state.scene)
 
-  useFrame(({clock}) => {
-    console.log(scene)
-  })
+  // useFrame(({clock}) => {
+  //   // console.log(scene)
+  // })
 
   return (
     <group>
