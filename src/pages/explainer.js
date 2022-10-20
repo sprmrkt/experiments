@@ -9,9 +9,26 @@ import {useWindowSize} from "react-use";
 import {Model as Static} from "../components/atoms/pages/explainer/models/Ttc-explainer-poc-static";
 import ActiveElements from "../components/atoms/pages/explainer/ActiveElements";
 import CameraRig from "../components/atoms/pages/explainer/CameraRig";
+import {Link} from "gatsby";
 
 const Holder = styled.div`
   background-color: rgb(0, 29, 108);
+`;
+const ButtonHolder = styled.div`
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  z-index: 100;
+
+  a {
+    font-size: 22px;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: block;
+    white-space: normal;
+    text-align: center;
+  }
 `;
 
 const scenes = 8;
@@ -23,6 +40,7 @@ function Explainer() {
     <Holder>
       <Seo title="Explainer" />
       <CanvasHolder>
+        <ButtonHolder><Link to="/explainer-vr">VR version available NOW!</Link></ButtonHolder>
         <Canvas
           shadows
           camera={{
