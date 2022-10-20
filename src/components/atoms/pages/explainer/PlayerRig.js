@@ -26,17 +26,13 @@ function PlayerRig() {
   });
 
   useFrame((state,delta ) => {
-    // console.log(delta)
-    // player.position.x = playerPos[scene][0]
-    // player.position.y = playerPos[scene][1]
-    // player.position.z = playerPos[scene][2]
-    // let x = THREE.MathUtils.damp(player.position.x, playerPos[scene][0], 0.1, delta)
-    // let y = THREE.MathUtils.damp(player.position.y, playerPos[scene][1], 0.1, delta)
-    // let z = THREE.MathUtils.damp(player.position.z, playerPos[scene][2], 0.1, delta)
-    let x = THREE.MathUtils.lerp(player.position.x, playerPos[scene][0], 0.001)
-    let y = THREE.MathUtils.lerp(player.position.y, playerPos[scene][1], 0.001)
-    let z = THREE.MathUtils.lerp(player.position.z, playerPos[scene][2], 0.001)
-    console.log(x,y,z)
+    let x = THREE.MathUtils.damp(player.position.x, playerPos[scene][0], 0.1, delta)
+    let y = THREE.MathUtils.damp(player.position.y, playerPos[scene][1], 0.1, delta)
+    let z = THREE.MathUtils.damp(player.position.z, playerPos[scene][2], 0.1, delta)
+    // let x = THREE.MathUtils.lerp(player.position.x, playerPos[scene][0], 0.001)
+    // let y = THREE.MathUtils.lerp(player.position.y, playerPos[scene][1], 0.001)
+    // let z = THREE.MathUtils.lerp(player.position.z, playerPos[scene][2], 0.001)
+    // console.log(x,y,z)
     player.position.x = x
     player.position.y = y
     player.position.z = z

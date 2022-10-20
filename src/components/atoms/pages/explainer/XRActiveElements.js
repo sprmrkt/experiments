@@ -14,6 +14,7 @@ import {useFrame} from "@react-three/fiber";
 import {Float} from "@react-three/drei";
 import {useExplainerStore} from "../../../../utils/myStore";
 import {useStore} from "zustand";
+import * as THREE from "three";
 
 function XRActiveElements() {
   const popup1 = useRef(null)
@@ -32,9 +33,56 @@ function XRActiveElements() {
   const speech4 = useRef(null)
   const scene = useExplainerStore((state) => state.scene)
 
-  // useFrame(({clock}) => {
-  //   // console.log(scene)
-  // })
+  useFrame((state, delta) => {
+    // Scene 2
+    miniman.current.rotation.y = THREE.MathUtils.damp(miniman.current.rotation.y, scene > 1 ? 0 : Math.PI, 0.5, delta)
+    miniman.current.position.x = THREE.MathUtils.damp(miniman.current.position.x, scene > 1 ? -2 : 0, 0.5, delta)
+
+    // Scene 3
+    speech2.current.scale.x = THREE.MathUtils.damp(speech2.current.scale.x, scene > 2 ? 1 : 0, 0.5, delta)
+    speech2.current.scale.y = THREE.MathUtils.damp(speech2.current.scale.y, scene > 2 ? 1 : 0, 0.5, delta)
+    speech2.current.scale.z = THREE.MathUtils.damp(speech2.current.scale.z, scene > 2 ? 1 : 0, 0.5, delta)
+
+    // Scene 4
+    popup3.current.scale.x = THREE.MathUtils.damp(popup3.current.scale.x, scene > 3 ? 1 : 0, 0.5, delta)
+    popup3.current.scale.y = THREE.MathUtils.damp(popup3.current.scale.y, scene > 3 ? 1 : 0, 0.5, delta)
+    popup3.current.scale.z = THREE.MathUtils.damp(popup3.current.scale.z, scene > 3 ? 1 : 0, 0.5, delta)
+
+    popup2.current.scale.x = THREE.MathUtils.damp(popup2.current.scale.x, scene > 3 ? 1 : 0, 0.5, delta)
+    popup2.current.scale.y = THREE.MathUtils.damp(popup2.current.scale.y, scene > 3 ? 1 : 0, 0.5, delta)
+    popup2.current.scale.z = THREE.MathUtils.damp(popup2.current.scale.z, scene > 3 ? 1 : 0, 0.5, delta)
+
+    // Scene 5
+    popup1.current.scale.x = THREE.MathUtils.damp(popup1.current.scale.x, scene > 4 ? 1 : 0, 0.5, delta)
+    popup1.current.scale.y = THREE.MathUtils.damp(popup1.current.scale.y, scene > 4 ? 1 : 0, 0.5, delta)
+    popup1.current.scale.z = THREE.MathUtils.damp(popup1.current.scale.z, scene > 4 ? 1 : 0, 0.5, delta)
+
+    speech4.current.scale.x = THREE.MathUtils.damp(speech4.current.scale.x, scene > 4 ? 1 : 0, 0.5, delta)
+    speech4.current.scale.y = THREE.MathUtils.damp(speech4.current.scale.y, scene > 4 ? 1 : 0, 0.5, delta)
+    speech4.current.scale.z = THREE.MathUtils.damp(speech4.current.scale.z, scene > 4 ? 1 : 0, 0.5, delta)
+
+    // Scene 6
+    speech3.current.scale.x = THREE.MathUtils.damp(speech3.current.scale.x, scene > 5 ? 1 : 0, 0.5, delta)
+    speech3.current.scale.y = THREE.MathUtils.damp(speech3.current.scale.y, scene > 5 ? 1 : 0, 0.5, delta)
+    speech3.current.scale.z = THREE.MathUtils.damp(speech3.current.scale.z, scene > 5 ? 1 : 0, 0.5, delta)
+
+    manhead.current.rotation.y = THREE.MathUtils.damp(manhead.current.rotation.y, scene > 5 ? Math.PI * 0.4 : 0, 0.5, delta)
+
+    // Scene 7
+    popup4.current.scale.x = THREE.MathUtils.damp(popup4.current.scale.x, scene > 6 ? 1 : 0, 0.5, delta)
+    popup4.current.scale.y = THREE.MathUtils.damp(popup4.current.scale.y, scene > 6 ? 1 : 0, 0.5, delta)
+    popup4.current.scale.z = THREE.MathUtils.damp(popup4.current.scale.z, scene > 6 ? 1 : 0, 0.5, delta)
+
+    headset.current.rotation.y = THREE.MathUtils.damp(headset.current.rotation.y, scene > 6 ? Math.PI * 0.4 : Math.PI * -0.4, 0.5, delta)
+
+    // Scene 8
+    ladyhead.current.rotation.y = THREE.MathUtils.damp(ladyhead.current.rotation.y, scene > 7 ? 0 : -Math.PI * 0.4, 0.5, delta)
+
+    speech1.current.scale.x = THREE.MathUtils.damp(speech1.current.scale.x, scene > 7 ? 1 : 0, 0.5, delta)
+    speech1.current.scale.y = THREE.MathUtils.damp(speech1.current.scale.x, scene > 7 ? 1 : 0, 0.5, delta)
+    speech1.current.scale.z = THREE.MathUtils.damp(speech1.current.scale.x, scene > 7 ? 1 : 0, 0.5, delta)
+
+  })
 
   return (
     <group>
@@ -47,7 +95,7 @@ function XRActiveElements() {
       <group ref={headset}><Float><Headset scale={25} position={[-0.25, 0, 0]} /></Float></group>
 
       <group ref={minilady}><MiniLady scale={25} position={[0, 0, 0]} /></group>
-      <group ref={miniman}><MiniMan scale={25} position={[2, 0, 0]} /></group>
+      <group ref={miniman} rotation={[0,Math.PI,0]}><MiniMan scale={25} position={[2, 0, 0]} /></group>
       <group ref={manhead} position={[-10, 11, 0]}><Float><ManHead scale={25} /></Float></group>
       <group ref={ladyhead} position={[10, 11, 0]}><Float><LadyHead scale={25} /></Float></group>
 
