@@ -1,8 +1,7 @@
 import React, {useEffect, useRef, useState} from 'react';
 import {useExplainerStore} from "../../../../utils/myStore";
-import {Box, Circle, Cylinder, Sphere} from "@react-three/drei";
+import {Cylinder} from "@react-three/drei";
 import {Interactive} from "@react-three/xr";
-import {useFrame} from "@react-three/fiber";
 
 const nextPos = [
   [0, -15, -7],
@@ -18,7 +17,7 @@ const nextPos = [
 const prevPos = [
   [0, 3, 10],
   [0, -15, -7],
-  [-1, 6, -3],
+  [-2, 6, -3],
   [0, 5, 4],
   [10, 5, 4],
   [-10, 5, 4],
@@ -51,12 +50,12 @@ function XRButtons() {
     <group>
       <Interactive onSelect={increaseScene} onHover={() => setNextHover(true)} onBlur={() => setNextHover(false)}>
         <Cylinder ref={next} args={[2,2,0.125,32]} rotation={[Math.PI/2,0,0]}>
-          <meshStandardMaterial color={nextHover ? '#cdfaaa' : '#b8fd6e'} transparent opacity={0.5}/>
+          <meshStandardMaterial color={nextHover ? '#cdfaaa' : '#b8fd6e'} transparent opacity={0.4}/>
         </Cylinder>
       </Interactive>
       <Interactive onSelect={decreaseScene} onHover={() => setPrevHover(true)} onBlur={() => setPrevHover(false)}>
-        <Cylinder ref={prev} args={[1,1,0.125,32]} rotation={[Math.PI/2,0,0]}>
-          <meshStandardMaterial color={prevHover ? '#d5b3ff' : '#b36efd'} transparent opacity={0.5}/>
+        <Cylinder ref={prev} args={[0.5,0.5,0.125,32]} rotation={[Math.PI/2,0,0]}>
+          <meshStandardMaterial color={prevHover ? '#d5b3ff' : '#b36efd'} transparent opacity={0.4}/>
         </Cylinder>
       </Interactive>
     </group>

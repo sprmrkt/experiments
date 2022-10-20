@@ -35,52 +35,51 @@ function XRActiveElements() {
 
   useFrame((state, delta) => {
     // Scene 2
-    miniman.current.rotation.y = THREE.MathUtils.damp(miniman.current.rotation.y, scene > 1 ? 0 : Math.PI, 0.5, delta)
-    miniman.current.position.x = THREE.MathUtils.damp(miniman.current.position.x, scene > 1 ? -2 : 0, 0.5, delta)
+    miniman.current.rotation.y = THREE.MathUtils.damp(miniman.current.rotation.y, scene > 1 ? 0 : Math.PI, 1, delta)
+    miniman.current.position.x = THREE.MathUtils.damp(miniman.current.position.x, scene > 1 ? -2 : 0, 1, delta)
+
+    speech2.current.scale.x = THREE.MathUtils.damp(speech2.current.scale.x, scene > 1 ? 1 : 0, 1, delta)
+    speech2.current.scale.y = THREE.MathUtils.damp(speech2.current.scale.y, scene > 1 ? 1 : 0, 1, delta)
+    speech2.current.scale.z = THREE.MathUtils.damp(speech2.current.scale.z, scene > 1 ? 1 : 0, 1, delta)
 
     // Scene 3
-    speech2.current.scale.x = THREE.MathUtils.damp(speech2.current.scale.x, scene > 2 ? 1 : 0, 0.5, delta)
-    speech2.current.scale.y = THREE.MathUtils.damp(speech2.current.scale.y, scene > 2 ? 1 : 0, 0.5, delta)
-    speech2.current.scale.z = THREE.MathUtils.damp(speech2.current.scale.z, scene > 2 ? 1 : 0, 0.5, delta)
+    popup3.current.scale.x = THREE.MathUtils.damp(popup3.current.scale.x, scene > 2 ? 1 : 0, 1, delta)
+    popup3.current.scale.y = THREE.MathUtils.damp(popup3.current.scale.y, scene > 2 ? 1 : 0, 1, delta)
+    popup3.current.scale.z = THREE.MathUtils.damp(popup3.current.scale.z, scene > 2 ? 1 : 0, 1, delta)
+
+    popup2.current.scale.x = THREE.MathUtils.damp(popup2.current.scale.x, scene > 2 ? 1 : 0, 1, delta)
+    popup2.current.scale.y = THREE.MathUtils.damp(popup2.current.scale.y, scene > 2 ? 1 : 0, 1, delta)
+    popup2.current.scale.z = THREE.MathUtils.damp(popup2.current.scale.z, scene > 2 ? 1 : 0, 1, delta)
 
     // Scene 4
-    popup3.current.scale.x = THREE.MathUtils.damp(popup3.current.scale.x, scene > 3 ? 1 : 0, 0.5, delta)
-    popup3.current.scale.y = THREE.MathUtils.damp(popup3.current.scale.y, scene > 3 ? 1 : 0, 0.5, delta)
-    popup3.current.scale.z = THREE.MathUtils.damp(popup3.current.scale.z, scene > 3 ? 1 : 0, 0.5, delta)
+    popup1.current.scale.x = THREE.MathUtils.damp(popup1.current.scale.x, scene > 3 ? 1 : 0, 1, delta)
+    popup1.current.scale.y = THREE.MathUtils.damp(popup1.current.scale.y, scene > 3 ? 1 : 0, 1, delta)
+    popup1.current.scale.z = THREE.MathUtils.damp(popup1.current.scale.z, scene > 3 ? 1 : 0, 1, delta)
 
-    popup2.current.scale.x = THREE.MathUtils.damp(popup2.current.scale.x, scene > 3 ? 1 : 0, 0.5, delta)
-    popup2.current.scale.y = THREE.MathUtils.damp(popup2.current.scale.y, scene > 3 ? 1 : 0, 0.5, delta)
-    popup2.current.scale.z = THREE.MathUtils.damp(popup2.current.scale.z, scene > 3 ? 1 : 0, 0.5, delta)
+    speech4.current.scale.x = THREE.MathUtils.damp(speech4.current.scale.x, scene > 3 ? 1 : 0, 1, delta)
+    speech4.current.scale.y = THREE.MathUtils.damp(speech4.current.scale.y, scene > 3 ? 1 : 0, 1, delta)
+    speech4.current.scale.z = THREE.MathUtils.damp(speech4.current.scale.z, scene > 3 ? 1 : 0, 1, delta)
 
     // Scene 5
-    popup1.current.scale.x = THREE.MathUtils.damp(popup1.current.scale.x, scene > 4 ? 1 : 0, 0.5, delta)
-    popup1.current.scale.y = THREE.MathUtils.damp(popup1.current.scale.y, scene > 4 ? 1 : 0, 0.5, delta)
-    popup1.current.scale.z = THREE.MathUtils.damp(popup1.current.scale.z, scene > 4 ? 1 : 0, 0.5, delta)
+    speech3.current.scale.x = THREE.MathUtils.damp(speech3.current.scale.x, scene > 4 ? 1 : 0, 1, delta)
+    speech3.current.scale.y = THREE.MathUtils.damp(speech3.current.scale.y, scene > 4 ? 1 : 0, 1, delta)
+    speech3.current.scale.z = THREE.MathUtils.damp(speech3.current.scale.z, scene > 4 ? 1 : 0, 1, delta)
 
-    speech4.current.scale.x = THREE.MathUtils.damp(speech4.current.scale.x, scene > 4 ? 1 : 0, 0.5, delta)
-    speech4.current.scale.y = THREE.MathUtils.damp(speech4.current.scale.y, scene > 4 ? 1 : 0, 0.5, delta)
-    speech4.current.scale.z = THREE.MathUtils.damp(speech4.current.scale.z, scene > 4 ? 1 : 0, 0.5, delta)
+    manhead.current.rotation.y = THREE.MathUtils.damp(manhead.current.rotation.y, scene > 4 ? Math.PI * 0.4 : 0, 0.5, delta)
 
     // Scene 6
-    speech3.current.scale.x = THREE.MathUtils.damp(speech3.current.scale.x, scene > 5 ? 1 : 0, 0.5, delta)
-    speech3.current.scale.y = THREE.MathUtils.damp(speech3.current.scale.y, scene > 5 ? 1 : 0, 0.5, delta)
-    speech3.current.scale.z = THREE.MathUtils.damp(speech3.current.scale.z, scene > 5 ? 1 : 0, 0.5, delta)
+    popup4.current.scale.x = THREE.MathUtils.damp(popup4.current.scale.x, scene > 5 ? 1 : 0, 1, delta)
+    popup4.current.scale.y = THREE.MathUtils.damp(popup4.current.scale.y, scene > 5 ? 1 : 0, 1, delta)
+    popup4.current.scale.z = THREE.MathUtils.damp(popup4.current.scale.z, scene > 5 ? 1 : 0, 1, delta)
 
-    manhead.current.rotation.y = THREE.MathUtils.damp(manhead.current.rotation.y, scene > 5 ? Math.PI * 0.4 : 0, 0.5, delta)
+    headset.current.rotation.y = THREE.MathUtils.damp(headset.current.rotation.y, scene > 5 ? Math.PI * 0.4 : Math.PI * -0.4, 0.5, delta)
 
     // Scene 7
-    popup4.current.scale.x = THREE.MathUtils.damp(popup4.current.scale.x, scene > 6 ? 1 : 0, 0.5, delta)
-    popup4.current.scale.y = THREE.MathUtils.damp(popup4.current.scale.y, scene > 6 ? 1 : 0, 0.5, delta)
-    popup4.current.scale.z = THREE.MathUtils.damp(popup4.current.scale.z, scene > 6 ? 1 : 0, 0.5, delta)
+    ladyhead.current.rotation.y = THREE.MathUtils.damp(ladyhead.current.rotation.y, scene > 6 ? 0 : -Math.PI * 0.4, 0.5, delta)
 
-    headset.current.rotation.y = THREE.MathUtils.damp(headset.current.rotation.y, scene > 6 ? Math.PI * 0.4 : Math.PI * -0.4, 0.5, delta)
-
-    // Scene 8
-    ladyhead.current.rotation.y = THREE.MathUtils.damp(ladyhead.current.rotation.y, scene > 7 ? 0 : -Math.PI * 0.4, 0.5, delta)
-
-    speech1.current.scale.x = THREE.MathUtils.damp(speech1.current.scale.x, scene > 7 ? 1 : 0, 0.5, delta)
-    speech1.current.scale.y = THREE.MathUtils.damp(speech1.current.scale.x, scene > 7 ? 1 : 0, 0.5, delta)
-    speech1.current.scale.z = THREE.MathUtils.damp(speech1.current.scale.x, scene > 7 ? 1 : 0, 0.5, delta)
+    speech1.current.scale.x = THREE.MathUtils.damp(speech1.current.scale.x, scene > 6 ? 1 : 0, 1, delta)
+    speech1.current.scale.y = THREE.MathUtils.damp(speech1.current.scale.x, scene > 6 ? 1 : 0, 1, delta)
+    speech1.current.scale.z = THREE.MathUtils.damp(speech1.current.scale.x, scene > 6 ? 1 : 0, 1, delta)
 
   })
 
