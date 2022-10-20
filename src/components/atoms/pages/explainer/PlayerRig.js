@@ -26,10 +26,10 @@ function PlayerRig() {
   // });
 
   useEffect(() => {
-    player.rotation.y = Math.PI
     player.position.x = playerPos[scene][0]
     player.position.y = playerPos[scene][1]
     player.position.z = playerPos[scene][2]
+    player.rotation.y = playerPos[scene][3]
   }, [scene])
 
   // useFrame((state,delta ) => {

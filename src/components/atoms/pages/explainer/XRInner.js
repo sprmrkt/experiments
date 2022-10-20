@@ -16,7 +16,8 @@ function XRInner() {
     <group>
       <Controllers />
       <ambientLight intensity={0.4} />
-      <DefaultDirectionalLight />
+      <DefaultDirectionalLight position={[40, 20, 30]}/>
+      <DefaultDirectionalLight position={[-20, 5, -10]} intensity={0.2}/>
       <group>
         <Static scale={25} />
         <XRActiveElements/>
