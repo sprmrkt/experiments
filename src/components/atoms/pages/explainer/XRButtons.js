@@ -2,9 +2,10 @@ import React, {useEffect, useRef, useState} from 'react';
 import {useExplainerStore} from "../../../../utils/myStore";
 import {Cylinder} from "@react-three/drei";
 import {Interactive} from "@react-three/xr";
+import {useFrame} from "@react-three/fiber";
 
 const nextPos = [
-  [0, -15, -7],
+  [0, 0, -7],
   [-1, 3, -7],
   [10, 5, 4],
   [-10, 5, 4],
@@ -16,7 +17,7 @@ const nextPos = [
 
 const prevPos = [
   [0, 3, 10],
-  [0, -15, -7],
+  [-1.25, -10, -7],
   [-2, 6, -3],
   [0, 5, 4],
   [10, 5, 4],
@@ -46,16 +47,25 @@ function XRButtons() {
     }
   }, [scene]);
 
+  useFrame(({clock}) => {
+    next.current.scale.x = Math.sin(clock.getElapsedTime() * 2) * 0.1 + 1
+    next.current.scale.y = Math.sin(clock.getElapsedTime() * 2) * 0.1 + 1
+    next.current.scale.z = Math.sin(clock.getElapsedTime() * 2) * 0.1 + 1
+    prev.current.scale.x = Math.sin(clock.getElapsedTime() * 2) * 0.1 + 1
+    prev.current.scale.y = Math.sin(clock.getElapsedTime() * 2) * 0.1 + 1
+    prev.current.scale.z = Math.sin(clock.getElapsedTime() * 2) * 0.1 + 1
+  })
+
   return (
     <group>
       <Interactive onSelect={increaseScene} onHover={() => setNextHover(true)} onBlur={() => setNextHover(false)}>
-        <Cylinder ref={next} args={[2,2,0.125,32]} rotation={[Math.PI/2,0,0]}>
-          <meshStandardMaterial color={nextHover ? '#cdfaaa' : '#b8fd6e'} transparent opacity={0.4}/>
+        <Cylinder ref={next} args={[1.75,1.75,0.125,32]} rotation={[Math.PI/2,0,0]}>
+          <meshStandardMaterial color={nextHover ? '#deffc7' : '#b8fd6e'} transparent opacity={0.9}/>
         </Cylinder>
       </Interactive>
       <Interactive onSelect={decreaseScene} onHover={() => setPrevHover(true)} onBlur={() => setPrevHover(false)}>
-        <Cylinder ref={prev} args={[0.5,0.5,0.125,32]} rotation={[Math.PI/2,0,0]}>
-          <meshStandardMaterial color={prevHover ? '#d5b3ff' : '#b36efd'} transparent opacity={0.4}/>
+        <Cylinder ref={prev} args={[0.75,0.75,0.125,32]} rotation={[Math.PI/2,0,0]}>
+          <meshStandardMaterial color={prevHover ? '#f3a6bd' : '#fd6291'} transparent opacity={0.4}/>
         </Cylinder>
       </Interactive>
     </group>
