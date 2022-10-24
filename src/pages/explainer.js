@@ -44,7 +44,7 @@ function Explainer() {
         <Canvas
           shadows
           camera={{
-            position: [-2, 0, size.width > 576 ? -30 : -40],
+            position: [-2, 0, size.width > 576 ? -30 : -60],
             fov: 40,
             rotation: [0, -Math.PI, 0]
           }}>
