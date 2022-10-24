@@ -10,50 +10,50 @@ export function Model(props) {
   return (
     <group {...props} dispose={null}>
       <group position={[-0.001185, -0.8, 0.00678]} rotation={[-Math.PI / 2, 0, 0]} scale={0.001}>
-        <group position={[350.125807, 246.967962, 2166.39379]}>
+        <group position={[440.125807, 246.967962, 158.289848]}>
           <group position={[-95.497249, 0, -0.62202]} rotation={[0, 0, -2.483247]} scale={[1.639331, 0.907408, 1.639331]}>
             <group position={[0, 0.009959, 0.379436]}>
-              <mesh geometry={nodes.Box_41.geometry} material={materials.Red} position={[0, -0.009959, 96.041382]} scale={[2.970814, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_40.geometry} material={materials.Red} position={[0, -0.009959, 0]} scale={[2.970814, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_38.geometry} material={materials.Red} position={[0, 30.993566, 1.978987]} scale={[1, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_39.geometry} material={materials.Red} position={[0, -30.965726, 1.978987]} scale={[1, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_41.geometry} material={materials.Yellow} position={[0, -0.009959, 96.041382]} scale={[2.970814, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_40.geometry} material={materials.Yellow} position={[0, -0.009959, 0]} scale={[2.970814, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_38.geometry} material={materials.Yellow} position={[0, 30.993566, 1.978987]} scale={[1, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_39.geometry} material={materials.Yellow} position={[0, -30.965726, 1.978987]} scale={[1, 0.983607, 1]} />
             </group>
-            <mesh geometry={nodes.Box_26.geometry} material={materials.Yellow} position={[0.028338, 0, 4.858422]} />
-            <mesh geometry={nodes.Box_26_1.geometry} material={materials.Yellow} position={[0.028338, 0, 11.858422]} />
-            <mesh geometry={nodes.Box_26_2.geometry} material={materials.Yellow} position={[0.028338, 0, 18.858422]} />
-            <mesh geometry={nodes.Box_26_3.geometry} material={materials.Yellow} position={[0.028338, 0, 25.858422]} />
-            <mesh geometry={nodes.Box_26_4.geometry} material={materials.Yellow} position={[0.028338, 0, 32.858422]} />
-            <mesh geometry={nodes.Box_26_5.geometry} material={materials.Yellow} position={[0.028338, 0, 39.858422]} />
-            <mesh geometry={nodes.Box_26_6.geometry} material={materials.Yellow} position={[0.028338, 0, 46.858422]} />
-            <mesh geometry={nodes.Box_26_7.geometry} material={materials.Yellow} position={[0.028338, 0, 53.858422]} />
-            <mesh geometry={nodes.Box_26_8.geometry} material={materials.Yellow} position={[0.028338, 0, 60.858422]} />
-            <mesh geometry={nodes.Box_26_9.geometry} material={materials.Yellow} position={[0.028338, 0, 67.858422]} />
-            <mesh geometry={nodes.Box_26_10.geometry} material={materials.Yellow} position={[0.028338, 0, 74.858422]} />
-            <mesh geometry={nodes.Box_26_11.geometry} material={materials.Yellow} position={[0.028338, 0, 81.858422]} />
-            <mesh geometry={nodes.Box_26_12.geometry} material={materials.Yellow} position={[0.028338, 0, 88.858422]} />
-            <mesh geometry={nodes.Box_25.geometry} material={materials.Red} position={[0, 0, 2.358422]} scale={[1, 0.983607, 1]} />
+            <mesh geometry={nodes.Box_26.geometry} material={materials.Blue} position={[0.028338, 0, 4.858422]} />
+            <mesh geometry={nodes.Box_26_1.geometry} material={materials.Blue} position={[0.028338, 0, 11.858422]} />
+            <mesh geometry={nodes.Box_26_2.geometry} material={materials.Blue} position={[0.028338, 0, 18.858422]} />
+            <mesh geometry={nodes.Box_26_3.geometry} material={materials.Blue} position={[0.028338, 0, 25.858422]} />
+            <mesh geometry={nodes.Box_26_4.geometry} material={materials.Blue} position={[0.028338, 0, 32.858422]} />
+            <mesh geometry={nodes.Box_26_5.geometry} material={materials.Blue} position={[0.028338, 0, 39.858422]} />
+            <mesh geometry={nodes.Box_26_6.geometry} material={materials.Blue} position={[0.028338, 0, 46.858422]} />
+            <mesh geometry={nodes.Box_26_7.geometry} material={materials.Blue} position={[0.028338, 0, 53.858422]} />
+            <mesh geometry={nodes.Box_26_8.geometry} material={materials.Blue} position={[0.028338, 0, 60.858422]} />
+            <mesh geometry={nodes.Box_26_9.geometry} material={materials.Blue} position={[0.028338, 0, 67.858422]} />
+            <mesh geometry={nodes.Box_26_10.geometry} material={materials.Blue} position={[0.028338, 0, 74.858422]} />
+            <mesh geometry={nodes.Box_26_11.geometry} material={materials.Blue} position={[0.028338, 0, 81.858422]} />
+            <mesh geometry={nodes.Box_26_12.geometry} material={materials.Blue} position={[0.028338, 0, 88.858422]} />
+            <mesh geometry={nodes.Box_25.geometry} material={materials.Yellow} position={[0, 0, 2.358422]} scale={[1, 0.983607, 1]} />
           </group>
           <group position={[45.470735, -20, -0.62202]} rotation={[0, 0, -Math.PI / 2]} scale={[1.639331, 0.907408, 1.639331]}>
             <group position={[0, 0.009959, 0.379436]}>
-              <mesh geometry={nodes.Box_41_1.geometry} material={materials.Red} position={[0, -0.009959, 96.041382]} scale={[2.970814, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_40_1.geometry} material={materials.Red} position={[0, -0.009959, 0]} scale={[2.970814, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_38_1.geometry} material={materials.Red} position={[0, 30.993566, 1.978987]} scale={[1, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_39_1.geometry} material={materials.Red} position={[0, -30.965726, 1.978987]} scale={[1, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_41_1.geometry} material={materials.Yellow} position={[0, -0.009959, 96.041382]} scale={[2.970814, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_40_1.geometry} material={materials.Yellow} position={[0, -0.009959, 0]} scale={[2.970814, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_38_1.geometry} material={materials.Yellow} position={[0, 30.993566, 1.978987]} scale={[1, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_39_1.geometry} material={materials.Yellow} position={[0, -30.965726, 1.978987]} scale={[1, 0.983607, 1]} />
             </group>
-            <mesh geometry={nodes.Box_26_13.geometry} material={materials.Yellow} position={[0.028338, 0, 4.858422]} />
-            <mesh geometry={nodes.Box_26_14.geometry} material={materials.Yellow} position={[0.028338, 0, 11.858422]} />
-            <mesh geometry={nodes.Box_26_15.geometry} material={materials.Yellow} position={[0.028338, 0, 18.858422]} />
-            <mesh geometry={nodes.Box_26_16.geometry} material={materials.Yellow} position={[0.028338, 0, 25.858422]} />
-            <mesh geometry={nodes.Box_26_17.geometry} material={materials.Yellow} position={[0.028338, 0, 32.858422]} />
-            <mesh geometry={nodes.Box_26_18.geometry} material={materials.Yellow} position={[0.028338, 0, 39.858422]} />
-            <mesh geometry={nodes.Box_26_19.geometry} material={materials.Yellow} position={[0.028338, 0, 46.858422]} />
-            <mesh geometry={nodes.Box_26_20.geometry} material={materials.Yellow} position={[0.028338, 0, 53.858422]} />
-            <mesh geometry={nodes.Box_26_21.geometry} material={materials.Yellow} position={[0.028338, 0, 60.858422]} />
-            <mesh geometry={nodes.Box_26_22.geometry} material={materials.Yellow} position={[0.028338, 0, 67.858422]} />
-            <mesh geometry={nodes.Box_26_23.geometry} material={materials.Yellow} position={[0.028338, 0, 74.858422]} />
-            <mesh geometry={nodes.Box_26_24.geometry} material={materials.Yellow} position={[0.028338, 0, 81.858422]} />
-            <mesh geometry={nodes.Box_26_25.geometry} material={materials.Yellow} position={[0.028338, 0, 88.858422]} />
-            <mesh geometry={nodes.Box_25_1.geometry} material={materials.Red} position={[0, 0, 2.358422]} scale={[1, 0.983607, 1]} />
+            <mesh geometry={nodes.Box_26_13.geometry} material={materials.Blue} position={[0.028338, 0, 4.858422]} />
+            <mesh geometry={nodes.Box_26_14.geometry} material={materials.Blue} position={[0.028338, 0, 11.858422]} />
+            <mesh geometry={nodes.Box_26_15.geometry} material={materials.Blue} position={[0.028338, 0, 18.858422]} />
+            <mesh geometry={nodes.Box_26_16.geometry} material={materials.Blue} position={[0.028338, 0, 25.858422]} />
+            <mesh geometry={nodes.Box_26_17.geometry} material={materials.Blue} position={[0.028338, 0, 32.858422]} />
+            <mesh geometry={nodes.Box_26_18.geometry} material={materials.Blue} position={[0.028338, 0, 39.858422]} />
+            <mesh geometry={nodes.Box_26_19.geometry} material={materials.Blue} position={[0.028338, 0, 46.858422]} />
+            <mesh geometry={nodes.Box_26_20.geometry} material={materials.Blue} position={[0.028338, 0, 53.858422]} />
+            <mesh geometry={nodes.Box_26_21.geometry} material={materials.Blue} position={[0.028338, 0, 60.858422]} />
+            <mesh geometry={nodes.Box_26_22.geometry} material={materials.Blue} position={[0.028338, 0, 67.858422]} />
+            <mesh geometry={nodes.Box_26_23.geometry} material={materials.Blue} position={[0.028338, 0, 74.858422]} />
+            <mesh geometry={nodes.Box_26_24.geometry} material={materials.Blue} position={[0.028338, 0, 81.858422]} />
+            <mesh geometry={nodes.Box_26_25.geometry} material={materials.Blue} position={[0.028338, 0, 88.858422]} />
+            <mesh geometry={nodes.Box_25_1.geometry} material={materials.Yellow} position={[0, 0, 2.358422]} scale={[1, 0.983607, 1]} />
           </group>
         </group>
         <group position={[-376.384754, 246.967962, 1388.851827]}>
@@ -102,13 +102,13 @@ export function Model(props) {
             <mesh geometry={nodes.Box_25_3.geometry} material={materials.Red} position={[0, 0, 2.358422]} scale={[1, 0.983607, 1]} />
           </group>
         </group>
-        <group position={[750.489978, 246.967962, 558.217731]}>
+        <group position={[-379.510022, 246.967962, 593.716367]}>
           <group position={[-95.497249, 0, -0.62202]} rotation={[0, 0, -2.483247]} scale={[1.639331, 0.907408, 1.639331]}>
             <group position={[0, 0.009959, 0.379436]}>
-              <mesh geometry={nodes.Box_41_4.geometry} material={materials.Red} position={[0, -0.009959, 96.041382]} scale={[2.970814, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_40_4.geometry} material={materials.Red} position={[0, -0.009959, 0]} scale={[2.970814, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_38_4.geometry} material={materials.Red} position={[0, 30.993566, 1.978987]} scale={[1, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_39_4.geometry} material={materials.Red} position={[0, -30.965726, 1.978987]} scale={[1, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_41_4.geometry} material={materials.Blue} position={[0, -0.009959, 96.041382]} scale={[2.970814, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_40_4.geometry} material={materials.Blue} position={[0, -0.009959, 0]} scale={[2.970814, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_38_4.geometry} material={materials.Blue} position={[0, 30.993566, 1.978987]} scale={[1, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_39_4.geometry} material={materials.Blue} position={[0, -30.965726, 1.978987]} scale={[1, 0.983607, 1]} />
             </group>
             <mesh geometry={nodes.Box_26_52.geometry} material={materials.Yellow} position={[0.028338, 0, 4.858422]} />
             <mesh geometry={nodes.Box_26_53.geometry} material={materials.Yellow} position={[0.028338, 0, 11.858422]} />
@@ -123,14 +123,14 @@ export function Model(props) {
             <mesh geometry={nodes.Box_26_62.geometry} material={materials.Yellow} position={[0.028338, 0, 74.858422]} />
             <mesh geometry={nodes.Box_26_63.geometry} material={materials.Yellow} position={[0.028338, 0, 81.858422]} />
             <mesh geometry={nodes.Box_26_64.geometry} material={materials.Yellow} position={[0.028338, 0, 88.858422]} />
-            <mesh geometry={nodes.Box_25_4.geometry} material={materials.Red} position={[0, 0, 2.358422]} scale={[1, 0.983607, 1]} />
+            <mesh geometry={nodes.Box_25_4.geometry} material={materials.Blue} position={[0, 0, 2.358422]} scale={[1, 0.983607, 1]} />
           </group>
           <group position={[95.470735, 0, -0.62202]} rotation={[0, 0, -0.658346]} scale={[1.639331, 0.907408, 1.639331]}>
             <group position={[0, 0.009959, 0.379436]}>
-              <mesh geometry={nodes.Box_41_5.geometry} material={materials.Red} position={[0, -0.009959, 96.041382]} scale={[2.970814, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_40_5.geometry} material={materials.Red} position={[0, -0.009959, 0]} scale={[2.970814, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_38_5.geometry} material={materials.Red} position={[0, 30.993566, 1.978987]} scale={[1, 0.983607, 1]} />
-              <mesh geometry={nodes.Box_39_5.geometry} material={materials.Red} position={[0, -30.965726, 1.978987]} scale={[1, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_41_5.geometry} material={materials.Blue} position={[0, -0.009959, 96.041382]} scale={[2.970814, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_40_5.geometry} material={materials.Blue} position={[0, -0.009959, 0]} scale={[2.970814, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_38_5.geometry} material={materials.Blue} position={[0, 30.993566, 1.978987]} scale={[1, 0.983607, 1]} />
+              <mesh geometry={nodes.Box_39_5.geometry} material={materials.Blue} position={[0, -30.965726, 1.978987]} scale={[1, 0.983607, 1]} />
             </group>
             <mesh geometry={nodes.Box_26_65.geometry} material={materials.Yellow} position={[0.028338, 0, 4.858422]} />
             <mesh geometry={nodes.Box_26_66.geometry} material={materials.Yellow} position={[0.028338, 0, 11.858422]} />
@@ -145,7 +145,7 @@ export function Model(props) {
             <mesh geometry={nodes.Box_26_75.geometry} material={materials.Yellow} position={[0.028338, 0, 74.858422]} />
             <mesh geometry={nodes.Box_26_76.geometry} material={materials.Yellow} position={[0.028338, 0, 81.858422]} />
             <mesh geometry={nodes.Box_26_77.geometry} material={materials.Yellow} position={[0.028338, 0, 88.858422]} />
-            <mesh geometry={nodes.Box_25_5.geometry} material={materials.Red} position={[0, 0, 2.358422]} scale={[1, 0.983607, 1]} />
+            <mesh geometry={nodes.Box_25_5.geometry} material={materials.Blue} position={[0, 0, 2.358422]} scale={[1, 0.983607, 1]} />
           </group>
         </group>
         <group position={[-420.817588, 197.031082, 95.692412]} rotation={[0, 0, 0.465331]} scale={0.410771}>
@@ -357,36 +357,6 @@ export function Model(props) {
           <mesh geometry={nodes.Box_52_13.geometry} material={materials.Red} position={[1323.896071, 702.701895, 57.699527]} scale={[0.168782, 0.593309, 0.092217]} />
           <mesh geometry={nodes.Box_46.geometry} material={materials.Yellow} scale={[1, 3.515236, 0.54637]} />
           <mesh geometry={nodes.Box_27.geometry} material={materials.Purple} position={[0, -602.940874, 0]} scale={[1, 2.116975, 1]} />
-        </group>
-        <group position={[149.898909, 206.780006, 153.137963]}>
-          <mesh geometry={nodes.Cylinder_39.geometry} material={materials.Yellow} position={[-659.36651, 0, 1547.170392]} />
-          <mesh geometry={nodes.Cylinder_39_1.geometry} material={materials.Yellow} position={[-639.36651, 0, 1547.170392]} />
-          <mesh geometry={nodes.Cylinder_39_2.geometry} material={materials.Yellow} position={[-619.36651, 0, 1547.170392]} />
-          <mesh geometry={nodes.Cylinder_39_3.geometry} material={materials.Yellow} position={[-599.36651, 0, 1547.170392]} />
-          <mesh geometry={nodes.Cylinder_39_4.geometry} material={materials.Yellow} position={[-579.36651, 0, 1547.170392]} />
-          <mesh geometry={nodes.Cylinder_39_5.geometry} material={materials.Yellow} position={[-559.36651, 0, 1547.170392]} />
-          <mesh geometry={nodes.Cylinder_39_6.geometry} material={materials.Yellow} position={[-539.36651, 0, 1547.170392]} />
-          <mesh geometry={nodes.Cylinder_39_7.geometry} material={materials.Purple} position={[539.36651, 0, 1199.319999]} />
-          <mesh geometry={nodes.Cylinder_39_8.geometry} material={materials.Purple} position={[559.36651, 0, 1199.319999]} />
-          <mesh geometry={nodes.Cylinder_39_9.geometry} material={materials.Purple} position={[579.36651, 0, 1199.319999]} />
-          <mesh geometry={nodes.Cylinder_39_10.geometry} material={materials.Purple} position={[599.36651, 0, 1199.319999]} />
-          <mesh geometry={nodes.Cylinder_39_11.geometry} material={materials.Purple} position={[619.36651, 0, 1199.319999]} />
-          <mesh geometry={nodes.Cylinder_39_12.geometry} material={materials.Purple} position={[639.36651, 0, 1199.319999]} />
-          <mesh geometry={nodes.Cylinder_39_13.geometry} material={materials.Purple} position={[659.36651, 0, 1199.319999]} />
-          <mesh geometry={nodes.Cylinder_39_14.geometry} material={materials.Yellow} position={[-589.63349, 0, 436.588767]} />
-          <mesh geometry={nodes.Cylinder_39_15.geometry} material={materials.Yellow} position={[-569.63349, 0, 436.588767]} />
-          <mesh geometry={nodes.Cylinder_39_16.geometry} material={materials.Yellow} position={[-549.63349, 0, 436.588767]} />
-          <mesh geometry={nodes.Cylinder_39_17.geometry} material={materials.Yellow} position={[-529.63349, 0, 436.588767]} />
-          <mesh geometry={nodes.Cylinder_39_18.geometry} material={materials.Yellow} position={[-509.63349, 0, 436.588767]} />
-          <mesh geometry={nodes.Cylinder_39_19.geometry} material={materials.Yellow} position={[-489.63349, 0, 436.588767]} />
-          <mesh geometry={nodes.Cylinder_39_20.geometry} material={materials.Yellow} position={[-469.63349, 0, 436.588767]} />
-          <mesh geometry={nodes.Cylinder_39_21.geometry} material={materials.Blue} position={[230.285981, 0, 0]} />
-          <mesh geometry={nodes.Cylinder_39_22.geometry} material={materials.Blue} position={[250.285981, 0, 0]} />
-          <mesh geometry={nodes.Cylinder_39_23.geometry} material={materials.Blue} position={[270.285981, 0, 0]} />
-          <mesh geometry={nodes.Cylinder_39_24.geometry} material={materials.Blue} position={[290.285981, 0, 0]} />
-          <mesh geometry={nodes.Cylinder_39_25.geometry} material={materials.Blue} position={[310.285981, 0, 0]} />
-          <mesh geometry={nodes.Cylinder_39_26.geometry} material={materials.Blue} position={[330.285981, 0, 0]} />
-          <mesh geometry={nodes.Cylinder_39_27.geometry} material={materials.Blue} position={[350.285981, 0, 0]} />
         </group>
         <group position={[-6.14472, 207.508033, -2.673952]}>
           <group position={[754.766103, 0, 546.908636]}>
