@@ -9,9 +9,20 @@ import {useWindowSize} from "react-use";
 import BlocksModel from "../components/atoms/pages/blocks/BlocksModel";
 import {Model} from "../components/atoms/pages/materials/Suzanne";
 import MovingLight from "../components/atoms/pages/materials/MovingLight";
+import * as THREE from 'three'
 
 const Holder = styled.div`
+  background-color: #d0d0d0;
 `;
+
+const materials = [
+  new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color('#bb86a1').convertSRGBToLinear(),
+    roughness: 0,
+    clearcoat: 1,
+    clearcoatRoughness: 0,
+  })
+]
 
 function Materials() {
 
@@ -25,14 +36,16 @@ function Materials() {
             position: [0, 2, 10],
             fov: 30,
           }}>
-          <axesHelper args={[5]}/>
+          <axesHelper args={[5]} />
           <ambientLight intensity={0.5} />
-          <OrbitControls/>
-          <Model position={[0,-0.75,0]}/>
+          <OrbitControls />
+
+          <Model position={[0, -0.75, 0]} material={materials[0]}/>
+
+          <pointLight position={[-10, -10, -10]} color="white" intensity={1} />
           <spotLight position={[50, 50, -30]} castShadow />
           <Environment preset="warehouse" />
-          <MovingLight/>
-          <Plane args={[100,100]} position={[0,-0.75,0]} rotation={[-Math.PI/2,0,0]}/>
+          <MovingLight />
         </Canvas>
       </CanvasHolder>
     </Holder>
