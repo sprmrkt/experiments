@@ -3,7 +3,7 @@ import Seo from "../components/molecules/Seo";
 import styled from "styled-components";
 import CanvasHolder from "../components/atoms/CanvasHolder";
 import {Canvas} from "@react-three/fiber";
-import {Environment, OrbitControls, Plane, ScrollControls} from "@react-three/drei";
+import {Environment, MeshReflectorMaterial, OrbitControls, Plane, ScrollControls} from "@react-three/drei";
 import DefaultDirectionalLight from "../components/atoms/DefaultDirectionalLight";
 import {useWindowSize} from "react-use";
 import BlocksModel from "../components/atoms/pages/blocks/BlocksModel";
@@ -16,12 +16,60 @@ const Holder = styled.div`
 `;
 
 const materials = [
+  // Pink shiny plastic
   new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color('#bb86a1').convertSRGBToLinear(),
+    color: new THREE.Color('#bb2082').convertSRGBToLinear(),
     roughness: 0,
     clearcoat: 1,
     clearcoatRoughness: 0,
-  })
+  }),
+  // Pink shiny plastic
+  new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color('#0a968e').convertSRGBToLinear(),
+    roughness: 0,
+    clearcoat: 1,
+    clearcoatRoughness: 0,
+  }),
+  // Pink shiny plastic
+  new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color('#bb9b1d').convertSRGBToLinear(),
+    roughness: 0,
+    clearcoat: 1,
+    clearcoatRoughness: 0,
+  }),
+  // Frosted glass
+  new THREE.MeshPhysicalMaterial({
+    roughness: 0.8,
+    transmission: 1,
+    thickness: 1.5
+  }),
+  // Mid glass
+  new THREE.MeshPhysicalMaterial({
+    roughness: 0.5,
+    transmission: 1,
+    thickness: 1.5
+  }),
+  // Clear glass
+  new THREE.MeshPhysicalMaterial({
+    roughness: 0.07,
+    transmission: 1,
+    thickness: 1.5
+  }),
+  // Matt plastic
+  new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color('#984b3a').convertSRGBToLinear(),
+    roughness: 0.7,
+  }),
+  // Matt plastic
+  new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color('#b3bb5f').convertSRGBToLinear(),
+    roughness: 0.7,
+  }),
+  // Matt plastic
+  new THREE.MeshPhysicalMaterial({
+    color: new THREE.Color('#5d81ad').convertSRGBToLinear(),
+    roughness: 0.7,
+  }),
 ]
 
 function Materials() {
@@ -36,16 +84,41 @@ function Materials() {
             position: [0, 2, 10],
             fov: 30,
           }}>
-          <axesHelper args={[5]} />
-          <ambientLight intensity={0.5} />
+          <ambientLight intensity={0.75} />
           <OrbitControls />
 
-          <Model position={[0, -0.75, 0]} material={materials[0]}/>
+          <Model position={[-2, -0.75, -2]} material={materials[0]}/>
+          <Model position={[-2, -0.75, 0]} material={materials[1]}/>
+          <Model position={[-2, -0.75, 2]} material={materials[2]}/>
 
-          <pointLight position={[-10, -10, -10]} color="white" intensity={1} />
-          <spotLight position={[50, 50, -30]} castShadow />
+          <Model position={[0, -0.75, -2]} material={materials[3]}/>
+          <Model position={[0, -0.75, 0]} material={materials[4]}/>
+          <Model position={[0, -0.75, 2]} material={materials[5]}/>
+
+          <Model position={[2, -0.75, -2]} material={materials[6]}/>
+          <Model position={[2, -0.75, 0]} material={materials[7]}/>
+          <Model position={[2, -0.75, 2]} material={materials[8]}/>
+
+          {/*<pointLight position={[-30, -30, -30]} color="white" intensity={0.5} />*/}
+          {/*<spotLight position={[50, 50, -30]} castShadow intensity={0.5}/>*/}
           <Environment preset="warehouse" />
           <MovingLight />
+
+          <mesh position={[0, -0.6, 0]} rotation={[-Math.PI / 2, 0, 0]}>
+            <planeGeometry args={[50, 50]} />
+            <MeshReflectorMaterial
+              blur={[400, 100]}
+              resolution={1024}
+              mixBlur={1}
+              mixStrength={15}
+              depthScale={2}
+              minDepthThreshold={0.85}
+              color="#151515"
+              metalness={0.6}
+              roughness={1}
+              mirror={1}
+            />
+          </mesh>
         </Canvas>
       </CanvasHolder>
     </Holder>
