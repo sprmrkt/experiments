@@ -10,6 +10,10 @@ import BlocksModel from "../components/atoms/pages/blocks/BlocksModel";
 import {Model} from "../components/atoms/pages/materials/Suzanne";
 import MovingLight from "../components/atoms/pages/materials/MovingLight";
 import * as THREE from 'three'
+import plasterColor from "../assets/materials/white-rough-plaster/white_rough_plaster_diff_1k.jpg";
+import plasterDisp from "../assets/materials/white-rough-plaster/white_rough_plaster_disp_1k.png";
+import plasterRough from "../assets/materials/white-rough-plaster/white_rough_plaster_rough_1k.jpg";
+// import plasterNormal from "../assets/materials/white-rough-plaster/white_rough_plaster_nor_gl_1k.exr";
 
 const Holder = styled.div`
   background-color: #d0d0d0;
@@ -70,6 +74,14 @@ const materials = [
     color: new THREE.Color('#5d81ad').convertSRGBToLinear(),
     roughness: 0.7,
   }),
+  // Texture
+  new THREE.MeshPhysicalMaterial({
+    // map: plasterColor,
+    // displacementMap: plasterDisp,
+    // roughnessMap: plasterRough,
+    displacementScale: 0.5,
+    toneMapped: false
+  }),
 ]
 
 function Materials() {
@@ -98,6 +110,8 @@ function Materials() {
           <Model position={[2, -0.75, -2]} material={materials[6]}/>
           <Model position={[2, -0.75, 0]} material={materials[7]}/>
           <Model position={[2, -0.75, 2]} material={materials[8]}/>
+
+          <Model position={[4, -0.75, -2]} material={materials[9]}/>
 
           {/*<pointLight position={[-30, -30, -30]} color="white" intensity={0.5} />*/}
           {/*<spotLight position={[50, 50, -30]} castShadow intensity={0.5}/>*/}
