@@ -42,7 +42,7 @@ function ExplodedView() {
             position: [0, 0, size.width > 576 ? 10 : 18],
             fov: 30,
           }}>
-          <Perf/>
+          {/*<Perf/>*/}
           <ScrollControls pages={5}>
             {/*<axesHelper args={[5]} />*/}
             <ambientLight intensity={0.3} />
