@@ -48,3 +48,8 @@ const redMat = new THREE.MeshStandardMaterial({color: red,})
 ### Vectary
 
 - 
+
+## Resources
+
+- https://3dtextures.me/
+- 
