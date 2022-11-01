@@ -30,7 +30,7 @@ const ledMaterial = new THREE.MeshPhysicalMaterial({
 })
 
 const curcuitMaterial = new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color('#287a2c').convertSRGBToLinear(),
+    color: new THREE.Color('#416042').convertSRGBToLinear(),
     roughness: 0.7
   })
 
