@@ -12,25 +12,26 @@ const caseMaterial = new THREE.MeshPhysicalMaterial({
   color: new THREE.Color('#ffffff').convertSRGBToLinear(),
   roughness: 0,
   clearcoat: 1,
-  clearcoatRoughness: 0,
+  clearcoatRoughness: 0
 })
 
 const clearPlastic = new THREE.MeshPhysicalMaterial({
   roughness: 0.07,
   transmission: 1,
-  thickness: 0,
+  thickness: 0
 })
 
 const ledMaterial = new THREE.MeshPhysicalMaterial({
   roughness: 0,
   emissive: new THREE.Color('#99f6ff').convertSRGBToLinear(),
   emissiveIntensity: 0.25,
-  metalness: 0.7
+  metalness: 0.7,
+  toneMapped: false
 })
 
 const curcuitMaterial = new THREE.MeshPhysicalMaterial({
     color: new THREE.Color('#287a2c').convertSRGBToLinear(),
-    roughness: 0.7,
+    roughness: 0.7
   })
 
 const batteryMaterial = new THREE.MeshStandardMaterial({
@@ -87,13 +88,13 @@ export function Model(props) {
     <group ref={group}>
       <group ref={inner}>
         <group {...props} dispose={null} rotation={[0, 0, Math.PI]}>
-          <mesh receiveShadow castShadow ref={battery} geometry={nodes.battery.geometry} material={batteryMaterial} scale={0.001} />
-          <mesh receiveShadow castShadow ref={circuitBoard} geometry={nodes['circuit-board'].geometry} material={curcuitMaterial}
+          <mesh ref={battery} geometry={nodes.battery.geometry} material={batteryMaterial} scale={0.001} />
+          <mesh receiveShadow ref={circuitBoard} geometry={nodes['circuit-board'].geometry} material={curcuitMaterial}
                 scale={0.001} />
           <mesh castShadow ref={led} geometry={nodes.led.geometry} material={ledMaterial} scale={0.001} />
-          <pointLight castShadow ref={light} position={[0,0.035,0]} color="blue" intensity={0.5} />
+          <pointLight castShadow ref={light} position={[0,0.035,0]} color="white" intensity={0.5} />
           <mesh ref={cap} geometry={nodes.cap.geometry} material={clearPlastic} scale={0.001} />
-          <mesh receiveShadow castShadow ref={casing} geometry={nodes['outer-case'].geometry} material={caseMaterial} scale={0.001} />
+          <mesh ref={casing} geometry={nodes['outer-case'].geometry} material={caseMaterial} scale={0.001} />
         </group>
       </group>
     </group>
