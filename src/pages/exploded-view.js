@@ -11,6 +11,22 @@ import {Perf} from "r3f-perf";
 import MovingLight from "../components/atoms/pages/materials/MovingLight";
 
 const Holder = styled.div`
+  .info {
+    padding: 20px;
+    border-radius: 20px;
+    color: black;
+    background-color: rgba(255,255,255,0.4);
+    border: 1px solid;
+    text-align: center;
+    h2 {
+      font-size: 13px;
+      margin: 0;
+    }
+    p {
+      font-size: 11px;
+      margin: 0;
+    }
+  }
 `;
 
 function ExplodedView() {
@@ -23,7 +39,7 @@ function ExplodedView() {
         <Canvas
           shadows
           camera={{
-            position: [0, 0, size.width > 576 ? 10 : 15],
+            position: [0, 0, size.width > 576 ? 10 : 18],
             fov: 30,
           }}>
           <Perf/>
@@ -34,7 +50,7 @@ function ExplodedView() {
           </ScrollControls>
           <DefaultDirectionalLight intensity={0.5} position={[10, 1, 10]}/>
           <Environment preset="warehouse" />
-          <Backdrop receiveShadow={false} castShadow floor={2} position={[0, -2, -5]} scale={[50, 10, 4]}>
+          <Backdrop receiveShadow={false} castShadow floor={2} position={[0, -2, -5]} scale={[50, 10, 10]}>
             <meshStandardMaterial color={'#292933'} envMapIntensity={0.1} />
           </Backdrop>
         </Canvas>
