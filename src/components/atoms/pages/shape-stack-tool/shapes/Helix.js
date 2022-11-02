@@ -9,7 +9,7 @@ export function Helix(props) {
   const { nodes } = useGLTF('/shape-stack-tool/helix.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh
+      <mesh castShadow receiveShadow
         geometry={nodes.Helix.geometry}
         material={props.mat}
         position={[0,0,0]}

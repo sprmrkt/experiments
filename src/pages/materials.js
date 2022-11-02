@@ -74,6 +74,14 @@ const materials = [
     color: new THREE.Color('#5d81ad').convertSRGBToLinear(),
     roughness: 0.7,
   }),
+// Gold
+  new THREE.MeshStandardMaterial({
+    metalness: 0.75,
+    roughness: 0.15,
+    color: "#8a492f",
+    emissive: "#600000",
+    envMapIntensity: 20
+  }),
   // Texture
   new THREE.MeshPhysicalMaterial({
     // map: plasterColor,
@@ -99,19 +107,19 @@ function Materials() {
           <ambientLight intensity={0.75} />
           <OrbitControls />
 
-          <Model position={[-2, -0.75, -2]} material={materials[0]}/>
-          <Model position={[-2, -0.75, 0]} material={materials[1]}/>
-          <Model position={[-2, -0.75, 2]} material={materials[2]}/>
+          <Model position={[-2, -0.75, -2]} material={materials[0]} />
+          <Model position={[-2, -0.75, 0]} material={materials[1]} />
+          <Model position={[-2, -0.75, 2]} material={materials[2]} />
 
-          <Model position={[0, -0.75, -2]} material={materials[3]}/>
-          <Model position={[0, -0.75, 0]} material={materials[4]}/>
-          <Model position={[0, -0.75, 2]} material={materials[5]}/>
+          <Model position={[0, -0.75, -2]} material={materials[3]} />
+          <Model position={[0, -0.75, 0]} material={materials[4]} />
+          <Model position={[0, -0.75, 2]} material={materials[5]} />
 
-          <Model position={[2, -0.75, -2]} material={materials[6]}/>
-          <Model position={[2, -0.75, 0]} material={materials[7]}/>
-          <Model position={[2, -0.75, 2]} material={materials[8]}/>
+          <Model position={[2, -0.75, -2]} material={materials[6]} />
+          <Model position={[2, -0.75, 0]} material={materials[7]} />
+          <Model position={[2, -0.75, 2]} material={materials[8]} />
 
-          <Model position={[4, -0.75, -2]} material={materials[9]}/>
+          <Model position={[4, -0.75, -2]} material={materials[9]} />
 
           {/*<pointLight position={[-30, -30, -30]} color="white" intensity={0.5} />*/}
           {/*<spotLight position={[50, 50, -30]} castShadow intensity={0.5}/>*/}

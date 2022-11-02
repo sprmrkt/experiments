@@ -9,7 +9,7 @@ export function RectangleShape(props) {
   const { nodes } = useGLTF('/shape-stack-tool/rectangle.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Rectangle.geometry} material={props.mat} rotation={[-Math.PI / 2, 0, 0]} scale={0.04} />
+      <mesh castShadow receiveShadow geometry={nodes.Rectangle.geometry} material={props.mat} rotation={[-Math.PI / 2, 0, 0]} scale={0.04} />
     </group>
   )
 }

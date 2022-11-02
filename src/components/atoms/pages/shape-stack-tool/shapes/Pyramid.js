@@ -9,7 +9,7 @@ export function PyramidShape(props) {
   const { nodes } = useGLTF('/shape-stack-tool/pyramid.glb')
   return (
     <group {...props} dispose={null}>
-      <mesh geometry={nodes.Pyramid.geometry} material={props.mat} scale={0.04} />
+      <mesh castShadow receiveShadow geometry={nodes.Pyramid.geometry} material={props.mat} scale={0.04} />
     </group>
   )
 }

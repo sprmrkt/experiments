@@ -22,6 +22,7 @@ const redMat = new THREE.MeshStandardMaterial({color: red,})
 const pinkMat = new THREE.MeshStandardMaterial({color: pink,})
 const greenMat = new THREE.MeshStandardMaterial({color: green,})
 const yellowMat = new THREE.MeshStandardMaterial({color: yellow,})
+
 function ShapeStackInner() {
   return (
     <>
@@ -43,12 +44,39 @@ function ShapeStackInner() {
       <RigidBody colliders={"hull"}>
         <RectangleShape mat={greenMat}/>
       </RigidBody>
-      <RigidBody colliders={"trimesh"}>
+      <RigidBody colliders={"hull"}>
         <Star mat={yellowMat} position={[-4,0,0]}/>
       </RigidBody>
       <RigidBody colliders={"ball"}>
         <Sphere args={[2]}>
           <meshStandardMaterial color={red}/>
+        </Sphere>
+      </RigidBody>
+
+      <RigidBody colliders={"hull"}>
+        <Helix mat={yellowMat}/>
+      </RigidBody>
+      <RigidBody colliders={"hull"}>
+        <Arc mat={greenMat}/>
+      </RigidBody>
+      <RigidBody colliders={"hull"}>
+        <Arch mat={pinkMat}/>
+      </RigidBody>
+      <RigidBody colliders={"hull"}>
+        <Lozenger mat={redMat}/>
+      </RigidBody>
+      <RigidBody colliders={"hull"}>
+        <PyramidShape mat={redMat}/>
+      </RigidBody>
+      <RigidBody colliders={"hull"}>
+        <RectangleShape mat={pinkMat}/>
+      </RigidBody>
+      <RigidBody colliders={"hull"}>
+        <Star mat={redMat} position={[4,0,0]}/>
+      </RigidBody>
+      <RigidBody colliders={"ball"}>
+        <Sphere args={[2]}>
+          <meshStandardMaterial color={green}/>
         </Sphere>
       </RigidBody>
 
