@@ -6,7 +6,6 @@ import {Canvas} from "@react-three/fiber";
 import {OrbitControls, Plane, ScrollControls} from "@react-three/drei";
 import DefaultDirectionalLight from "../components/atoms/DefaultDirectionalLight";
 import {useWindowSize} from "react-use";
-import BlocksModel from "../components/atoms/pages/blocks/BlocksModel";
 import {Model as Fox} from "../components/atoms/pages/gltf-aimations/Fox";
 
 const Holder = styled.div`
