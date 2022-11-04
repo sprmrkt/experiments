@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import PropTypes from "prop-types";
 // import '../utils/fontface.css';
 import Header from "../components/molecules/Header";
@@ -7,18 +7,29 @@ import {ThemeProvider} from "styled-components";
 import {theme} from "../utils/styling";
 import {useWindowSize} from "react-use";
 
-function Index({children}) {
+function Index({children, location}) {
   const size = useWindowSize();
+  const [ hideHeader, setHideHeader ] = useState( false );
 
   useEffect(() => {
     document.documentElement.style.setProperty('--windowHeight', `${size.height}px`);
   }, [size]);
 
+
+  useEffect(() => {
+    console.log(location)
+    if(location.pathname === '/sapa-girl/') {
+      setHideHeader(true)
+    } else {
+      setHideHeader(false)
+    }
+  }, [location]);
+
   return (
     <ThemeProvider theme={theme}>
       <>
         <GlobalStyles />
-        <Header />
+        <Header hide={hideHeader}/>
         <main>{children}</main>
       </>
     </ThemeProvider>
