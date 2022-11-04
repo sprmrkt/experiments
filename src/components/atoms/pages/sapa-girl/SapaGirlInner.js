@@ -1,5 +1,5 @@
-import React from 'react';
-import {OrbitControls, PerspectiveCamera, Plane} from "@react-three/drei";
+import React, {useEffect} from 'react';
+import {PerspectiveCamera, Plane} from "@react-three/drei";
 import {Model as SapaGirlModel} from "./Sapa-girl";
 import {Canvas} from "@react-three/fiber";
 import studio from '@theatre/studio'
@@ -18,6 +18,10 @@ const EditableCamera = e(PerspectiveCamera, 'perspectiveCamera')
 
 
 function SapaGirlInner() {
+  useEffect(() => {
+    demoSheet.project.ready.then(() => demoSheet.sequence.play({ iterationCount: Infinity, range: [0, 5] }))
+  }, [])
+
   return (
     <Canvas gl={{preserveDrawingBuffer:true}}>
       <SheetProvider sheet={demoSheet}>
