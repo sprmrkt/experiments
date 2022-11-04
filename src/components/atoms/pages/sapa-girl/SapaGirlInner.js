@@ -8,9 +8,11 @@ import { editable as e, SheetProvider } from '@theatre/r3f'
 import { getProject } from '@theatre/core'
 import demoProjectState from '../../../../assets/sapa-girl/state.json'
 
+if (process.env.NODE_ENV === 'development') {
+  studio.initialize()
+  studio.extend(extension)
+}
 
-studio.initialize()
-studio.extend(extension)
 const demoSheet = getProject('Demo Project', { state: demoProjectState }).sheet('Demo Sheet')
 const EditableCamera = e(PerspectiveCamera, 'perspectiveCamera')
 
