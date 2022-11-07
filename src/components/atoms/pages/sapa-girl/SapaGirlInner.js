@@ -4,26 +4,24 @@ import {Model as SapaGirlModel} from "./Sapa-girl";
 import {Canvas} from "@react-three/fiber";
 import studio from '@theatre/studio'
 import extension from '@theatre/r3f/dist/extension'
-import { editable as e, SheetProvider } from '@theatre/r3f'
-import { getProject } from '@theatre/core'
+import {editable as e, SheetProvider} from '@theatre/r3f'
+import {getProject} from '@theatre/core'
 import demoProjectState from '../../../../assets/sapa-girl/state.json'
 
-if (process.env.NODE_ENV === 'development') {
-  studio.initialize()
-  studio.extend(extension)
-}
+studio.initialize()
+studio.extend(extension)
 
-const demoSheet = getProject('Demo Project', { state: demoProjectState }).sheet('Demo Sheet')
+const demoSheet = getProject('Demo Project', {state: demoProjectState}).sheet('Demo Sheet')
 const EditableCamera = e(PerspectiveCamera, 'perspectiveCamera')
 
 
 function SapaGirlInner() {
   useEffect(() => {
-    demoSheet.project.ready.then(() => demoSheet.sequence.play({ iterationCount: Infinity, range: [0, 5] }))
+    demoSheet.project.ready.then(() => demoSheet.sequence.play({iterationCount: Infinity, range: [0, 5]}))
   }, [])
 
   return (
-    <Canvas gl={{preserveDrawingBuffer:true}}>
+    <Canvas gl={{preserveDrawingBuffer: true}}>
       <SheetProvider sheet={demoSheet}>
         <EditableCamera theatreKey="Camera" makeDefault position={[0, 0, -5]} fov={75} />
         <axesHelper args={[5]} />
