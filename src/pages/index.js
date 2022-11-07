@@ -38,9 +38,21 @@ const IndexPage = () => (
       <Seo title="Home" keywords={[`gatsby`, `application`, `react`]} />
       <ul>
         <li>
+          <Link to={'/theatre'}>Collaboration tool Theatre.js</Link>
+          <div className="image-holder">
+            <Image imgName={'theatre-fi.png'}/>
+          </div>
+        </li>
+        <li>
           <Link to={'/explainer'}>Scrolling explainer with VR option</Link>
           <div className="image-holder">
             <Image imgName={'explainer-fi.png'}/>
+          </div>
+        </li>
+        <li>
+          <Link to={'/exploded-view'}>Exploding product</Link>
+          <div className="image-holder">
+            <Image imgName={'exploding-product-fi.png'}/>
           </div>
         </li>
         <li>

@@ -18,7 +18,7 @@ function Header({hide}) {
   return (
       <Holder hide={hide}>
         <h1>
-          <Link to="/">The Third Dimension</Link>
+          <Link to="/">experiments</Link>/<a href="https://supermarket.london" target="_blank" rel="noopener noreferrer">supermarket.london</a>
         </h1>
       </Holder>
   );

@@ -28,7 +28,6 @@ const GlobalStyle = createGlobalStyle`
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-weight: normal;
-    text-transform: uppercase;
   }
 
   p,

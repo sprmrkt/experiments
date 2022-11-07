@@ -23,7 +23,7 @@ function Index({children, location}) {
     } else {
       setHideHeader(false)
     }
-  }, [location]);
+  }, [location.pathname]);
 
   return (
     <ThemeProvider theme={theme}>
