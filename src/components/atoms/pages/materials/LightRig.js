@@ -11,18 +11,36 @@ export function LightRig({name, ...props }) {
   console.log("lifght nodes",new THREE.MeshBasicMaterial);
 
  useFrame((state) => (
-   ref.current.rotation.y = state.clock.elapsedTime,
+   ref.current.rotation.y = (props.animate?(state.clock.elapsedTime*props.animSpeed):ref.current.rotation.y ),
    ref.current.children[1].lookAt(0, 0, 0)
  ))
 
 var { lighting, showStats }  = useControls(name ,{
   Transformation:folder({
+    animate: {
+      value: false,
+      onChange: (v) => {
+        props.animate=v
+      }
+    },
+    animationSpeed: {
+          value: 1,
+          onChange: (v) => {
+            props.animSpeed=v
+          }
+        },
     height: {
       value: 5,
       onChange: (v) => {
         ref.current.position.y=v
       }
     },
+    staticRotation: {
+          value: 5,
+          onChange: (v) => {
+             ref.current.rotation.y=v
+          }
+        },
     radius: {
       value: 5,
       onChange: (v) => {
@@ -60,7 +78,7 @@ var { lighting, showStats }  = useControls(name ,{
         }
       },
       castShadow: {
-        value: false, 
+        value: false,
         onChange: (v) => {
            ref.current.children[1].children[0].castShadow = v
         }
