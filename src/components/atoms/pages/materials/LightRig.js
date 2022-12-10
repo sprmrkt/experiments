@@ -93,7 +93,7 @@ var { lighting, showStats }  = useControls(name ,{
           rotation={[degtorad(90), 0, 0]}
           material={new THREE.MeshBasicMaterial({color:'rgb(255, 234, 0)',wireframe:false,side:2})}
                 >
-               <ringBufferGeometry args={[5-0.1, 5, 32]} />
+               <ringBufferGeometry args={[5-0.1, 5, 60]} />
          </mesh>
 
         <mesh name="lightForm" geometry={nodes.light.geometry} position={[props.radius, 0, 0]} material={new THREE.MeshBasicMaterial({color:'rgb(255, 234, 0)',wireframe:false,wireframeLinewidth:5})} scale={[0.25,0.25,0.25]}>
