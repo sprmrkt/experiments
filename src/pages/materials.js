@@ -3,12 +3,19 @@ import Seo from "../components/molecules/Seo";
 import styled from "styled-components";
 import CanvasHolder from "../components/atoms/CanvasHolder";
 import {Canvas} from "@react-three/fiber";
-import {Environment, MeshReflectorMaterial, OrbitControls, Plane, ScrollControls} from "@react-three/drei";
+import {Environment, MeshReflectorMaterial, OrbitControls,TransformControls,Plane} from "@react-three/drei";
+
 import DefaultDirectionalLight from "../components/atoms/DefaultDirectionalLight";
 import {useWindowSize} from "react-use";
-import BlocksModel from "../components/atoms/pages/blocks/BlocksModel";
+import BlocksModel from "../components/atoms/pages/blocks/BlocksModel"; //Is this used?
 import {Model} from "../components/atoms/pages/materials/Suzanne";
-import MovingLight from "../components/atoms/pages/materials/MovingLight";
+import {LightRig} from "../components/atoms/pages/materials/LightRig";
+
+import DirectionalLight from "../components/atoms/pages/materials/DirectionalLight";//NEW
+import Controls from "../components/atoms/pages/materials/Controls";//NEW
+import {Entity} from "../components/atoms/pages/materials/Entity";//NEW
+import {cicularPosition,degtorad} from "../components/atoms/cFunctions"//NEW
+
 import * as THREE from 'three'
 import plasterColor from "../assets/materials/white-rough-plaster/white_rough_plaster_diff_1k.jpg";
 import plasterDisp from "../assets/materials/white-rough-plaster/white_rough_plaster_disp_1k.png";
@@ -18,82 +25,132 @@ import plasterRough from "../assets/materials/white-rough-plaster/white_rough_pl
 const Holder = styled.div`
   background-color: #d0d0d0;
 `;
-
+//No duplicates of object names and material name combination
 const materials = [
-  // Pink shiny plastic
-  new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color('#bb2082').convertSRGBToLinear(),
-    roughness: 0,
-    clearcoat: 1,
-    clearcoatRoughness: 0,
-  }),
-  // Pink shiny plastic
-  new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color('#0a968e').convertSRGBToLinear(),
-    roughness: 0,
-    clearcoat: 1,
-    clearcoatRoughness: 0,
-  }),
-  // Pink shiny plastic
-  new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color('#bb9b1d').convertSRGBToLinear(),
-    roughness: 0,
-    clearcoat: 1,
-    clearcoatRoughness: 0,
-  }),
-  // Frosted glass
-  new THREE.MeshPhysicalMaterial({
-    roughness: 0.8,
-    transmission: 1,
-    thickness: 1.5
-  }),
-  // Mid glass
-  new THREE.MeshPhysicalMaterial({
-    roughness: 0.5,
-    transmission: 1,
-    thickness: 1.5
-  }),
-  // Clear glass
-  new THREE.MeshPhysicalMaterial({
-    roughness: 0.07,
-    transmission: 1,
-    thickness: 1.5
-  }),
-  // Matt plastic
-  new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color('#984b3a').convertSRGBToLinear(),
-    roughness: 0.7,
-  }),
-  // Matt plastic
-  new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color('#b3bb5f').convertSRGBToLinear(),
-    roughness: 0.7,
-  }),
-  // Matt plastic
-  new THREE.MeshPhysicalMaterial({
-    color: new THREE.Color('#5d81ad').convertSRGBToLinear(),
-    roughness: 0.7,
-  }),
-// Gold
-  new THREE.MeshStandardMaterial({
-    metalness: 0.75,
-    roughness: 0.15,
-    color: "#8a492f",
-    emissive: "#600000",
-    envMapIntensity: 20
-  }),
-  // Texture
-  new THREE.MeshPhysicalMaterial({
-    // map: plasterColor,
-    // displacementMap: plasterDisp,
-    // roughnessMap: plasterRough,
-    displacementScale: 0.5,
-    toneMapped: false
-  }),
+  { //1 "rabbit"
+    title:"MeshPhysicalMaterial",
+    mat:
+    new THREE.MeshPhysicalMaterial({
+      color: new THREE.Color('#bb2082').convertSRGBToLinear(),
+      roughness: 0,
+      clearcoat: 1,
+      clearcoatRoughness: 0,
+          transmission: 1,
+          emissive: "#600000",
+          envMapIntensity: 20,
+              metalness: 0.75,
+      flatShading:false
+    })
+  },
+  { //2 "monkey",
+    title:"MeshPhysicalMaterial",
+    mat:
+    new THREE.MeshStandardMaterial({
+      color: new THREE.Color('#bb2082').convertSRGBToLinear(),
+      roughness: 0,
+      clearcoat: 1,
+      clearcoatRoughness: 0,
+          transmission: 1,
+          emissive: "#600000",
+          envMapIntensity: 20,
+              metalness: 0.75,
+      flatShading:false
+    })
+  },
+  { //3 "horseshoe"
+    title:"MeshPhysicalMaterial",
+    mat:
+    new THREE.MeshStandardMaterial({
+      color: new THREE.Color('#bb2082').convertSRGBToLinear(),
+      roughness: 0,
+      clearcoat: 1,
+      clearcoatRoughness: 0,
+          transmission: 1,
+          emissive: "#600000",
+          envMapIntensity: 20,
+              metalness: 0.75,
+      flatShading:false
+    })
+  },
+  { //4 ,"cube",
+    title:"MeshPhysicalMaterial",
+    mat:
+    new THREE.MeshStandardMaterial({
+      color: new THREE.Color('#bb2082').convertSRGBToLinear(),
+      roughness: 0,
+      clearcoat: 1,
+      clearcoatRoughness: 0,
+          transmission: 1,
+          emissive: "#600000",
+          envMapIntensity: 20,
+              metalness: 0.75,
+      flatShading:false
+    })
+  },
+  { //5 ,"rabbit",
+    title:"MeshStandardMaterial",
+    mat:
+    new THREE.MeshStandardMaterial({
+      color: new THREE.Color('#bb2082').convertSRGBToLinear(),
+      roughness: 0,
+      clearcoat: 1,
+      clearcoatRoughness: 0,
+          transmission: 1,
+          emissive: "#600000",
+          envMapIntensity: 20,
+              metalness: 0.75,
+      flatShading:false
+    })
+  },
+  { //6 ,"monkey"
+    title:"MeshStandardMaterial",
+    mat:
+    new THREE.MeshStandardMaterial({
+      color: new THREE.Color('#bb2082').convertSRGBToLinear(),
+      roughness: 0,
+      clearcoat: 1,
+      clearcoatRoughness: 0,
+          transmission: 1,
+          emissive: "#600000",
+          envMapIntensity: 20,
+              metalness: 0.75,
+      flatShading:false
+    })
+  },
+  { //7 "horseshoe"
+    title:"MeshStandardMaterial",
+    mat:
+    new THREE.MeshStandardMaterial({
+      color: new THREE.Color('#bb2082').convertSRGBToLinear(),
+      roughness: 0,
+      clearcoat: 1,
+      clearcoatRoughness: 0,
+          transmission: 1,
+          emissive: "#600000",
+          envMapIntensity: 20,
+              metalness: 0.75,
+      flatShading:false
+    })
+  },
+  { //7 "cube"
+    title:"MeshStandardMaterial",
+    mat:
+    new THREE.MeshStandardMaterial({
+      color: new THREE.Color('#bb2082').convertSRGBToLinear(),
+      roughness: 0,
+      clearcoat: 1,
+      clearcoatRoughness: 0,
+          transmission: 1,
+          emissive: "#600000",
+          envMapIntensity: 20,
+              metalness: 0.75,
+      flatShading:false
+    })
+  }
 ]
-
+var radius=5;
 function Materials() {
-
+  const objectArray=["rabbit","monkey","cube","horseshoe","rabbit","monkey","cube","horseshoe"]; //must be even number for perfectly spaced circle
   return (
     <Holder>
       <Seo title="Materials" />
@@ -104,10 +161,10 @@ function Materials() {
             position: [0, 2, 10],
             fov: 30,
           }}>
-          <ambientLight intensity={0.75} />
-          <OrbitControls />
-
-          <Model position={[-2, -0.75, -2]} material={materials[0]} />
+          {/*<ambientLight intensity={0.75} />*/}
+          <OrbitControls makeDefault/>
+          {/*
+            <Model position={[-2, -0.75, -2]} material={materials[0]} />
           <Model position={[-2, -0.75, 0]} material={materials[1]} />
           <Model position={[-2, -0.75, 2]} material={materials[2]} />
 
@@ -118,17 +175,22 @@ function Materials() {
           <Model position={[2, -0.75, -2]} material={materials[6]} />
           <Model position={[2, -0.75, 0]} material={materials[7]} />
           <Model position={[2, -0.75, 2]} material={materials[8]} />
+          <Model position={[4, -0.75, -2]} material={materials[0]} scale={[3,3,3]}/>
+          */}
 
-          <Model position={[4, -0.75, -2]} material={materials[9]} />
+          {objectArray.map((arr,index) => (
+               <Entity key={index} name={objectArray[index]+" "+materials[index].title} position={[cicularPosition(radius,degtorad((360/objectArray.length)*index)).x, -0.6, cicularPosition(radius,degtorad((360/objectArray.length)*index)).y]} rotation={[0,degtorad((360/objectArray.length)*index),0]}  mTitle={materials[index].title} material={materials[index].mat} scale={[1.5,1.5,1.5]}/>
+             ))}
 
+          <Controls/>
           {/*<pointLight position={[-30, -30, -30]} color="white" intensity={0.5} />*/}
           {/*<spotLight position={[50, 50, -30]} castShadow intensity={0.5}/>*/}
-          <Environment preset="warehouse" />
-          <MovingLight />
-
+        <Environment preset="warehouse"  />
+          <LightRig name="LightRig" radius={10}/>
+          {/*<DirectionalLight/>*/}
           <mesh position={[0, -0.6, 0]} rotation={[-Math.PI / 2, 0, 0]}>
             <planeGeometry args={[50, 50]} />
-            <MeshReflectorMaterial
+       <MeshReflectorMaterial
               blur={[400, 100]}
               resolution={1024}
               mixBlur={1}
@@ -148,3 +210,6 @@ function Materials() {
 };
 
 export default Materials;
+
+/*REMOVED ELEMENTS BELOW*/
+//
