@@ -15,9 +15,22 @@ function XRInner() {
   return (
     <group>
       <Controllers />
-      <ambientLight intensity={0.4} />
-      <DefaultDirectionalLight position={[40, 20, 30]}/>
-      <DefaultDirectionalLight position={[-20, 5, -10]} intensity={0.2}/>
+      <ambientLight intensity={0.5} />
+      <hemisphereLight args={[3835902, 9568489, 1]} />
+      <directionalLight
+        intensity={0.5}
+        color={'#ffffff'}
+        castShadow
+        position={[5, 10, 5]}
+        shadow-mapSize={[1024 * 2, 1024 * 2]}
+      />
+      <directionalLight
+        intensity={0.5}
+        color={'#ffffff'}
+        castShadow
+        position={[-5, 10, -5]}
+        shadow-mapSize={[1024 * 2, 1024 * 2]}
+      />
       <group>
         <Static scale={25} />
         <XRActiveElements/>

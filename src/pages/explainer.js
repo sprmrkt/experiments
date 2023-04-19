@@ -51,8 +51,22 @@ function Explainer() {
           {/*<OrbitControls />*/}
           <ScrollControls pages={10}>
             {/*<axesHelper args={[5]} />*/}
-            <ambientLight intensity={0.4} />
-            <DefaultDirectionalLight />
+            <ambientLight intensity={0.5} />
+            <hemisphereLight args={[3835902, 9568489, 1]} />
+            <directionalLight
+              intensity={0.5}
+              color={'#ffffff'}
+              castShadow
+              position={[5, 10, 5]}
+              shadow-mapSize={[1024 * 2, 1024 * 2]}
+            />
+            <directionalLight
+              intensity={0.5}
+              color={'#ffffff'}
+              castShadow
+              position={[-5, 10, -5]}
+              shadow-mapSize={[1024 * 2, 1024 * 2]}
+            />
             <CameraRig scenes={scenes} />
             <group position={[0, -5, 0]}>
               <Static scale={25} />
