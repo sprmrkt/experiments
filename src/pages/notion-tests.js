@@ -28,7 +28,7 @@ function NotionTests() {
             position: [0, 0, 5],
             fov: 40,
           }}>
-          <axesHelper args={[5]} />
+          {/*<axesHelper args={[5]} />*/}
           {/*<OrbitControls />*/}
           <ambientLight intensity={0.5} />
           <DefaultDirectionalLight />

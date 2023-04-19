@@ -26,7 +26,7 @@ function PhysicsPage() {
             fov: 40,
           }}>
           <OrbitControls />
-          <axesHelper args={[5]} />
+          {/*<axesHelper args={[5]} />*/}
           <ambientLight intensity={0.8} />
           <DefaultDirectionalLight />
           <Suspense fallback={null}>
